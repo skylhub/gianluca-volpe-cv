@@ -442,6 +442,47 @@
     .social-row a { color: rgba(255,255,255,0.2); transition: color 0.3s; }
     .social-row a:hover { color: var(--white); }
 
+    /* Layered text logo — ykadosh-style cascade */
+    .logo-layers {
+      position: relative;
+      display: inline-flex; flex-direction: column;
+      line-height: 1.1;
+      cursor: default;
+    }
+    .logo-layers .layer {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(6px);
+      animation: layerDrop 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), color 0.4s;
+    }
+    .logo-layers .layer:nth-child(1) {
+      font-size: 1.1rem; color: var(--white);
+      animation-delay: 0s;
+    }
+    .logo-layers .layer:nth-child(2) {
+      font-size: 1rem; color: var(--accent);
+      margin-left: 3px;
+      animation-delay: 0.15s;
+    }
+    .logo-layers .layer:nth-child(3) {
+      font-size: 0.55rem; color: rgba(255,255,255,0.4);
+      margin-left: 6px; margin-top: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      animation-delay: 0.3s;
+    }
+    @keyframes layerDrop {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .logo-layers:hover .layer:nth-child(1) { transform: skewY(-2deg) translateX(2px); }
+    .logo-layers:hover .layer:nth-child(2) { transform: skewY(-2deg) translateX(6px); color: #ff6688; }
+    .logo-layers:hover .layer:nth-child(3) { transform: skewY(-2deg) translateX(10px); color: var(--accent); }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-grid { display: flex; flex-direction: column; }
@@ -521,7 +562,11 @@
 
   <!-- Nav -->
   <nav>
-    <span style="font-family:var(--font-mono);font-size:1.2rem;letter-spacing:0.05em;">GV</span>
+    <div class="logo-layers">
+      <span class="layer">Gianluca</span>
+      <span class="layer">Volpe</span>
+      <span class="layer">digital project manager</span>
+    </div>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
