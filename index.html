@@ -78,19 +78,130 @@
     .mobile-menu.active { display: flex; }
     .mobile-menu a { font-family: var(--font-mono); color: rgba(255,255,255,0.6); text-decoration: none; padding: 0.8rem 0; font-size: 1.3rem; }
 
-    /* --- Hero --- */
-    .hero {
-      position: relative; min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 0 4rem;
-      background: var(--black);
-      overflow: hidden;
-    }
+    /* --- Hero Bokeh Background (Vecteezy-style) --- */
     .hero-bg {
       position: absolute; inset: 0;
-      background: 
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,30,60,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(255,30,60,0.04) 0%, transparent 60%);
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 30%, #0a0e1a 0%, #060810 50%, #000 100%);
+    }
+    /* Bokeh spheres — 3 depths: far (small, slow), mid (medium), near (large, fast) */
+    .bokeh {
+      position: absolute; border-radius: 50%;
+      will-change: transform, opacity;
+    }
+    /* FAR LAYER — small, dim, slow */
+    .bk-f1 { width: 120px; height: 120px; top: 10%; left: 15%;
+      background: radial-gradient(circle at 50% 50%, rgba(30,144,255,0.12) 0%, transparent 70%);
+      filter: blur(40px); animation: bkDrift 50s ease-in-out infinite; }
+    .bk-f2 { width: 100px; height: 100px; top: 40%; left: 60%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,180,50,0.10) 0%, transparent 70%);
+      filter: blur(35px); animation: bkDrift 55s ease-in-out infinite -10s; }
+    .bk-f3 { width: 140px; height: 140px; bottom: 20%; left: 30%;
+      background: radial-gradient(circle at 50% 50%, rgba(70,130,220,0.10) 0%, transparent 70%);
+      filter: blur(45px); animation: bkDrift 48s ease-in-out infinite -20s; }
+    .bk-f4 { width: 90px; height: 90px; top: 60%; right: 15%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,200,100,0.08) 0%, transparent 70%);
+      filter: blur(30px); animation: bkDrift 52s ease-in-out infinite -30s; }
+    .bk-f5 { width: 110px; height: 110px; top: 5%; left: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(50,120,220,0.09) 0%, transparent 70%);
+      filter: blur(38px); animation: bkDrift 45s ease-in-out infinite -5s; }
+    .bk-f6 { width: 80px; height: 80px; bottom: 30%; left: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,160,80,0.08) 0%, transparent 70%);
+      filter: blur(25px); animation: bkDrift 58s ease-in-out infinite -15s; }
+    .bk-f7 { width: 130px; height: 130px; top: 35%; right: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(60,140,240,0.10) 0%, transparent 70%);
+      filter: blur(42px); animation: bkDrift 53s ease-in-out infinite -25s; }
+    .bk-f8 { width: 95px; height: 95px; bottom: 10%; right: 30%;
+      background: radial-gradient(circle at 50% 50%, rgba(240,180,60,0.08) 0%, transparent 70%);
+      filter: blur(32px); animation: bkDrift 47s ease-in-out infinite -35s; }
+
+    /* MID LAYER — medium, brighter */
+    .bk-m1 { width: 280px; height: 280px; top: -60px; left: -60px;
+      background: radial-gradient(circle at 40% 50%, rgba(40,120,240,0.20) 0%, transparent 70%);
+      filter: blur(60px); animation: bkMid 35s ease-in-out infinite; }
+    .bk-m2 { width: 240px; height: 240px; top: 20%; left: 40%;
+      background: radial-gradient(circle at 60% 40%, rgba(80,160,255,0.16) 0%, transparent 70%);
+      filter: blur(55px); animation: bkMid 38s ease-in-out infinite -8s; }
+    .bk-m3 { width: 260px; height: 260px; bottom: 10%; left: 20%;
+      background: radial-gradient(circle at 40% 60%, rgba(255,170,60,0.15) 0%, transparent 70%);
+      filter: blur(58px); animation: bkMid 40s ease-in-out infinite -16s; }
+    .bk-m4 { width: 220px; height: 220px; top: 50%; right: 10%;
+      background: radial-gradient(circle at 50% 50%, rgba(60,140,255,0.14) 0%, transparent 70%);
+      filter: blur(50px); animation: bkMid 36s ease-in-out infinite -24s; }
+    .bk-m5 { width: 300px; height: 300px; top: -100px; right: -80px;
+      background: radial-gradient(circle at 30% 60%, rgba(255,190,80,0.18) 0%, transparent 70%);
+      filter: blur(65px); animation: bkMid 42s ease-in-out infinite -12s; }
+    .bk-m6 { width: 200px; height: 200px; bottom: 5%; right: 40%;
+      background: radial-gradient(circle at 50% 50%, rgba(30,100,220,0.12) 0%, transparent 70%);
+      filter: blur(48px); animation: bkMid 33s ease-in-out infinite -28s; }
+    .bk-m7 { width: 250px; height: 250px; top: 70%; left: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(230,160,50,0.13) 0%, transparent 70%);
+      filter: blur(54px); animation: bkMid 39s ease-in-out infinite -20s; }
+    .bk-m8 { width: 180px; height: 180px; top: 15%; right: 35%;
+      background: radial-gradient(circle at 50% 50%, rgba(50,130,240,0.11) 0%, transparent 70%);
+      filter: blur(44px); animation: bkMid 37s ease-in-out infinite -32s; }
+
+    /* NEAR LAYER — large, bright, fast flicker */
+    .bk-n1 { width: 500px; height: 500px; top: -150px; left: -100px;
+      background: radial-gradient(circle at 40% 60%, rgba(50,140,255,0.25) 0%, transparent 70%);
+      filter: blur(80px); animation: bkNear 25s ease-in-out infinite; }
+    .bk-n2 { width: 400px; height: 400px; top: 30%; left: 25%;
+      background: radial-gradient(circle at 50% 30%, rgba(100,180,255,0.20) 0%, transparent 70%);
+      filter: blur(70px); animation: bkNear 28s ease-in-out infinite -6s; }
+    .bk-n3 { width: 450px; height: 450px; bottom: -120px; left: 40%;
+      background: radial-gradient(circle at 60% 40%, rgba(255,200,80,0.18) 0%, transparent 70%);
+      filter: blur(75px); animation: bkNear 30s ease-in-out infinite -12s; }
+    .bk-n4 { width: 350px; height: 350px; top: 10%; right: -80px;
+      background: radial-gradient(circle at 30% 50%, rgba(255,160,60,0.20) 0%, transparent 70%);
+      filter: blur(65px); animation: bkNear 26s ease-in-out infinite -18s; }
+    .bk-n5 { width: 380px; height: 380px; bottom: 20%; right: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(30,120,255,0.15) 0%, transparent 70%);
+      filter: blur(68px); animation: bkNear 32s ease-in-out infinite -24s; }
+    .bk-n6 { width: 320px; height: 320px; top: 60%; left: 15%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,180,70,0.14) 0%, transparent 70%);
+      filter: blur(62px); animation: bkNear 27s ease-in-out infinite -10s; }
+    .bk-n7 { width: 480px; height: 480px; top: -80px; left: 40%;
+      background: radial-gradient(circle at 50% 50%, rgba(60,150,255,0.18) 0%, transparent 70%);
+      filter: blur(78px); animation: bkNear 29s ease-in-out infinite -14s; }
+    .bk-n8 { width: 300px; height: 300px; bottom: -60px; left: 10%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,180,70,0.16) 0%, transparent 70%);
+      filter: blur(60px); animation: bkNear 31s ease-in-out infinite -22s; }
+
+    /* Glints — tiny defocused highlights */
+    .bk-glint {
+      position: absolute; border-radius: 50%;
+      filter: blur(8px); animation: glintPulse 6s ease-in-out infinite;
+    }
+    .bk-g1 { width: 30px; height: 30px; top: 20%; left: 30%; background: rgba(255,255,255,0.03); animation-delay: 0s; }
+    .bk-g2 { width: 20px; height: 20px; top: 65%; left: 50%; background: rgba(255,255,255,0.025); animation-delay: -1.5s; }
+    .bk-g3 { width: 25px; height: 25px; top: 40%; right: 20%; background: rgba(255,255,255,0.02); animation-delay: -3s; }
+    .bk-g4 { width: 18px; height: 18px; bottom: 25%; right: 30%; background: rgba(255,255,255,0.02); animation-delay: -4.5s; }
+    .bk-g5 { width: 28px; height: 28px; top: 10%; left: 60%; background: rgba(255,255,255,0.02); animation-delay: -2s; }
+    .bk-g6 { width: 22px; height: 22px; bottom: 15%; left: 45%; background: rgba(255,255,255,0.015); animation-delay: -5s; }
+
+    /* Animations */
+    @keyframes bkDrift {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.3; }
+      20% { transform: translate(20px,-15px) scale(1.08); opacity: 0.5; }
+      40% { transform: translate(-15px,10px) scale(0.95); opacity: 0.35; }
+      60% { transform: translate(-25px,-10px) scale(1.04); opacity: 0.45; }
+      80% { transform: translate(15px,20px) scale(0.98); opacity: 0.3; }
+    }
+    @keyframes bkMid {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.35; }
+      25% { transform: translate(30px,-20px) scale(1.06); opacity: 0.6; }
+      50% { transform: translate(-20px,25px) scale(0.93); opacity: 0.4; }
+      75% { transform: translate(-30px,-15px) scale(1.03); opacity: 0.55; }
+    }
+    @keyframes bkNear {
+      0%,100% { transform: translate(0,0) scale(1); opacity: 0.4; }
+      30% { transform: translate(40px,-30px) scale(1.08); opacity: 0.7; }
+      60% { transform: translate(-30px,35px) scale(0.92); opacity: 0.45; }
+      90% { transform: translate(35px,25px) scale(1.05); opacity: 0.6; }
+    }
+    @keyframes glintPulse {
+      0%,100% { opacity: 0.1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.5); }
     }
     .hero-grid {
       display: grid;
@@ -331,7 +442,20 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+    <!-- Far layer -->
+    <div class="bokeh bk-f1"></div><div class="bokeh bk-f2"></div><div class="bokeh bk-f3"></div><div class="bokeh bk-f4"></div>
+    <div class="bokeh bk-f5"></div><div class="bokeh bk-f6"></div><div class="bokeh bk-f7"></div><div class="bokeh bk-f8"></div>
+    <!-- Mid layer -->
+    <div class="bokeh bk-m1"></div><div class="bokeh bk-m2"></div><div class="bokeh bk-m3"></div><div class="bokeh bk-m4"></div>
+    <div class="bokeh bk-m5"></div><div class="bokeh bk-m6"></div><div class="bokeh bk-m7"></div><div class="bokeh bk-m8"></div>
+    <!-- Near layer -->
+    <div class="bokeh bk-n1"></div><div class="bokeh bk-n2"></div><div class="bokeh bk-n3"></div><div class="bokeh bk-n4"></div>
+    <div class="bokeh bk-n5"></div><div class="bokeh bk-n6"></div><div class="bokeh bk-n7"></div><div class="bokeh bk-n8"></div>
+    <!-- Glints -->
+    <div class="bk-glint bk-g1"></div><div class="bk-glint bk-g2"></div><div class="bk-glint bk-g3"></div>
+    <div class="bk-glint bk-g4"></div><div class="bk-glint bk-g5"></div><div class="bk-glint bk-g6"></div>
+  </div>
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-tag reveal visible">Available for opportunities</div>
