@@ -90,14 +90,15 @@
       overflow: hidden;
     }
     .hero-bg img {
-      position: absolute; inset: -100px;
-      width: calc(100% + 200px); height: calc(100% + 200px);
+      position: absolute;
+      top: -10%; left: -10%;
+      width: 120%; height: 120%;
       object-fit: cover;
       animation: heroZoom 20s ease-in-out infinite alternate;
     }
     .hero-bg::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%);
       z-index: 1;
     }
     @keyframes heroZoom {
@@ -466,7 +467,6 @@
       <img src="hero-bg.jpg" alt="Alpine valley landscape" aria-hidden="true">
     </div>
     <div class="hero-grid" style="position:relative;z-index:2;">
-    <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-tag reveal visible">Available for opportunities</div>
         <h1>
