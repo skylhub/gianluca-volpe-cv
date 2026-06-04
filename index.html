@@ -5,403 +5,591 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gianluca Volpe – Digital Project Manager</title>
   <meta name="description" content="Gianluca Volpe - Digital Project Manager CV. Multilingual digital professional with 20+ years of experience.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%2399FF66' font-family='sans-serif'%3EGV%3C/text%3E%3C/svg%3E"/>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%23fff' font-family='monospace'%3EGV%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f5;
+      --grey: #888;
+      --accent: #ff2244;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 19px;
-      font-weight: 300;
-      color: white;
-      line-height: 1.5;
-    }
-    a { color: #9F6; text-decoration: none; transition: all 0.3s ease; }
-    a:hover { color: #3CF; }
-    p { line-height: 1.7; }
-    h2 { font-size: 1.8rem; }
-
-    /* Video background */
-    #bg-video {
-      position: fixed;
-      left: 50%; top: 50%;
-      min-width: 100%; min-height: 100%;
-      transform: translateX(-50%) translateY(-50%);
-      z-index: -100;
-      background: #000 url('https://templatemo.com/templates/templatemo_560_astro_motion/img/tm-astro-bg.jpg') center/cover no-repeat;
+      font-family: var(--font-sans);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Layout */
-    .page-container {
-      display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 100vh; padding: 0 30px;
-    }
-    .container-fluid { max-width: 1860px; margin: 0 auto; width: 100%; }
+    /* --- Scroll Animations --- */
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* Nav */
+    /* Line reveal for headings */
+    .line-mask { display: block; overflow: hidden; }
+    .line-mask span { display: block; transform: translateY(100%); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .line-mask.revealed span { transform: translateY(0); }
+
+    /* --- Grid overlay (fluid.glass style) --- */
+    .grid-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none; z-index: 99;
+      display: grid; grid-template-columns: repeat(24, 1fr); gap: 2rem;
+      padding: 0 4rem;
+    }
+    .grid-overlay .col { border-right: 1px solid rgba(255,255,255,0.02); }
+    .grid-overlay .col:first-child { border-left: 1px solid rgba(255,255,255,0.02); }
+
+    /* --- Nav --- */
     nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; flex-wrap: wrap;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 4rem; height: 6rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-    .brand { font-size: 2.4rem; font-weight: 300; color: white; }
-    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      font-size: 1.5rem; padding: 15px 65px;
-      border-bottom: 1px solid white; color: white; position: relative;
+      font-family: var(--font-mono); font-size: 1.1rem; font-weight: 500;
+      color: rgba(255,255,255,0.4); text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: color 0.3s;
     }
-    .nav-links a:hover, .nav-links a.active { color: #9F6; border-bottom-color: #9F6; }
-    .nav-links a.active::after {
-      content: ''; position: absolute; left: calc(50% - 10px); bottom: -10px;
-      width: 20px; height: 20px; background: #9F6; border-radius: 50%;
-    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-    .hamburger span { width: 28px; height: 2px; background: white; border-radius: 2px; }
-    .nav-links-mobile {
-      display: none; width: 100%; flex-direction: column; gap: 10px;
-      background: rgba(0,0,0,0.8); padding: 20px; border-radius: 8px; margin-top: 10px;
+    .hamburger span { width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu {
+      display: none; position: fixed; top: 6rem; left: 0; right: 0;
+      background: rgba(10,10,10,0.98); backdrop-filter: blur(20px);
+      padding: 2rem 4rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+      flex-direction: column; gap: 1rem;
     }
-    .nav-links-mobile.active { display: flex; }
-    .nav-links-mobile a { color: white; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu a { font-family: var(--font-mono); color: rgba(255,255,255,0.6); text-decoration: none; padding: 0.8rem 0; font-size: 1.3rem; }
 
-    /* Hero / Content */
+    /* --- Hero --- */
     .hero {
-      display: flex; align-items: center; justify-content: center;
-      flex: 1; padding: 40px 0;
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 0 4rem;
+      background: var(--black);
+      overflow: hidden;
     }
-    .hero-inner {
-      max-width: 810px; width: 100%;
-      border-top: 1px solid white; border-bottom: 1px solid white;
-      padding: 48px 0;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,30,60,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(255,30,60,0.04) 0%, transparent 60%);
     }
-    .hero-content {
-      background: rgba(0,0,0,0.3); padding: 30px 40px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      gap: 2rem; width: 100%; position: relative; z-index: 2;
     }
-    .hero-content h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    .hero-content .role { color: #9F6; font-size: 1.1rem; margin-bottom: 20px; }
-    .hero-content p { margin-bottom: 16px; }
-    .hero-contact { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
-    .hero-contact a { color: #9F6; }
-    .btn {
-      display: inline-block; font-size: 1.3rem; padding: 13px 23px;
-      background: white; color: #333; border: none; cursor: pointer;
-      transition: all 0.3s;
+    .hero-text { grid-column: 3 / 16; padding: 12rem 0 8rem; }
+    .hero-stats { grid-column: 18 / 24; padding: 12rem 0 8rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .hero-tag {
+      font-family: var(--font-mono); font-size: 1.1rem;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
     }
-    .btn:hover { color: #5cac38; background: white; }
+    .hero-tag::before {
+      content: ''; display: inline-block; width: 0.6rem; height: 0.6rem;
+      background: var(--accent); transform: rotate(45deg);
+    }
+    .hero-text h1 {
+      font-size: clamp(4rem, 8vw, 8rem); font-weight: 700;
+      line-height: 0.95; letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text .role {
+      font-family: var(--font-mono); font-size: 1.3rem;
+      color: rgba(255,255,255,0.4); letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero-text p {
+      font-size: 1.4rem; line-height: 1.5; color: rgba(255,255,255,0.4);
+      max-width: 50rem; margin-bottom: 2rem;
+    }
+    .hero-contact {
+      font-family: var(--font-mono); font-size: 1rem;
+      color: rgba(255,255,255,0.3); line-height: 2; margin-bottom: 2.5rem;
+    }
+    .hero-contact a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
 
-    /* Sections */
-    .section { padding: 60px 0; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-title {
-      font-size: 1.8rem; margin-bottom: 30px;
-      border-bottom: 1px solid white; padding-bottom: 15px;
+    .stat-card-hero {
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 0.3s;
     }
-    .section-title .highlight { color: #9F6; }
+    .stat-card-hero:hover { border-color: var(--accent); }
+    .stat-card-hero .num {
+      font-size: 2.8rem; font-weight: 700; color: var(--white);
+      font-family: var(--font-mono);
+    }
+    .stat-card-hero .label {
+      font-family: var(--font-mono); font-size: 0.8rem;
+      color: rgba(255,255,255,0.3); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-top: 0.3rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 1rem;
+      font-family: var(--font-mono); font-size: 1rem; font-weight: 500;
+      padding: 1.2rem 2.4rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white); text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .btn:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+    .btn-primary {
+      background: var(--accent); border-color: var(--accent);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #ff4466; border-color: #ff4466; }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* --- Sections --- */
+    .section { padding: 10rem 4rem; }
+    .section-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      gap: 2rem;
+    }
+    .section-left { grid-column: 3 / 12; }
+    .section-right { grid-column: 14 / 24; }
+    .section-full { grid-column: 3 / 24; }
+
+    .section-tag {
+      font-family: var(--font-mono); font-size: 1rem;
+      color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;
+    }
+    .section-tag::before {
+      content: ''; width: 0.5rem; height: 0.5rem;
+      background: var(--accent); transform: rotate(45deg);
+    }
+    .section-title {
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+    .section-text {
+      font-size: 1.2rem; line-height: 1.6; color: rgba(255,255,255,0.4);
+    }
 
     /* Cards */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .gcard {
-      background: rgba(0,0,0,0.3); padding: 25px;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: all 0.3s;
+    .card-grid { 
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+      margin: 3rem 0;
     }
-    .gcard:hover { border-color: #9F6; }
-    .gcard h4 { font-size: 1.2rem; margin-bottom: 8px; }
-    .gcard p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-    .gcard .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .gcard .tags span {
-      padding: 3px 10px; font-size: 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2); color: #9F6;
+    .card {
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.4s;
+    }
+    .card:hover { border-color: var(--accent); background: rgba(255,30,60,0.02); }
+    .card h4 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .card p { font-size: 0.95rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    .card .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .card .tags span {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase;
     }
 
     /* Timeline */
-    .timeline { max-width: 750px; margin: 0 auto; }
+    .timeline { margin-top: 2rem; }
     .tl-item {
-      padding: 8px 0 24px 30px;
-      border-left: 1px solid rgba(255,255,255,0.2); position: relative;
+      padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: grid; grid-template-columns: 1fr 3fr; gap: 2rem;
     }
-    .tl-item:last-child { border-left-color: transparent; }
-    .tl-item::before {
-      content: ''; position: absolute; left: -6px; top: 12px;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: #9F6;
-    }
-    .tl-date { font-size: 0.8rem; color: #9F6; font-weight: 600; }
-    .tl-item h4 { font-size: 1.1rem; margin: 4px 0 2px; }
-    .tl-company { font-size: 0.9rem; color: #3CF; margin-bottom: 6px; }
-    .tl-item p { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
-
-    /* Cert */
-    .cert-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 12px; margin-bottom: 6px;
-      background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08);
-    }
-    .cert-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; background: #9F6; }
-    .cert-item h4 { font-size: 0.85rem; }
-    .cert-item p { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    .tl-item h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .tl-company { font-family: var(--font-mono); font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem; }
+    .tl-item p { font-size: 0.9rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
 
     /* Lang bars */
-    .lang-item { margin-bottom: 12px; }
-    .lang-head { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 4px; }
-    .lang-head span:last-child { color: rgba(255,255,255,0.4); }
-    .lang-bar { height: 4px; background: rgba(255,255,255,0.1); }
-    .lang-bar .fill { height: 100%; background: #9F6; }
+    .lang-list { margin-top: 1rem; }
+    .lang-item { margin-bottom: 1.2rem; }
+    .lang-head { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .lang-head span:last-child { color: rgba(255,255,255,0.3); font-family: var(--font-mono); font-size: 0.8rem; }
+    .lang-bar { height: 2px; background: rgba(255,255,255,0.08); }
+    .lang-bar .fill { height: 100%; background: var(--accent); transition: width 1s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    /* Cert mini cards inside section */
+    .cert-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
+    .cert-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem; border: 1px solid rgba(255,255,255,0.04);
+      transition: border-color 0.3s;
+    }
+    .cert-item:hover { border-color: var(--accent); }
+    .cert-dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--accent); margin-top: 0.5rem; flex-shrink: 0; }
+    .cert-item h4 { font-size: 0.9rem; font-weight: 500; }
+    .cert-item p { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 0.2rem; }
 
     /* Contact */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .form-box { background: rgba(0,0,0,0.3); padding: 30px; }
-    .fg { margin-bottom: 18px; }
-    .fg label { display: block; margin-bottom: 4px; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .fg { margin-bottom: 1.2rem; }
+    .fg label { display: block; font-family: var(--font-mono); font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .fg input, .fg textarea {
-      width: 100%; padding: 12px; background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.2); color: white; font-size: 1rem;
-      font-family: inherit;
+      width: 100%; padding: 1rem;
+      background: transparent; border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white); font-size: 1rem; font-family: var(--font-sans);
+      transition: border-color 0.3s;
     }
-    .fg input:focus, .fg textarea:focus { outline: none; border-color: #9F6; }
-    .fg textarea { resize: vertical; min-height: 100px; }
+    .fg input:focus, .fg textarea:focus { outline: none; border-color: var(--accent); }
+    .fg textarea { resize: vertical; min-height: 8rem; }
     .ci {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px; margin-bottom: 8px;
-      background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem; border: 1px solid rgba(255,255,255,0.04);
+      margin-bottom: 0.5rem; transition: border-color 0.3s;
     }
-    .ci:hover { border-color: #9F6; }
-    .ci-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .ci-details h4 { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-    .ci-details p, .ci-details a { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .ci:hover { border-color: var(--accent); }
+    .ci-icon { font-family: var(--font-mono); font-size: 1.2rem; flex-shrink: 0; }
+    .ci-details h4 { font-size: 0.75rem; color: rgba(255,255,255,0.3); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; }
+    .ci-details p, .ci-details a { font-size: 0.9rem; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .ci-details a:hover { color: var(--white); }
 
     /* Footer */
     footer {
-      padding: 25px 0; display: flex; justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px;
+      padding: 4rem; border-top: 1px solid rgba(255,255,255,0.04);
+      display: flex; justify-content: space-between; align-items: center;
     }
-    footer p { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
-    .social-row { display: flex; gap: 12px; }
-    .social-row a { color: rgba(255,255,255,0.4); }
-    .social-row a:hover { color: #9F6; }
+    footer p { font-size: 0.85rem; color: rgba(255,255,255,0.2); }
+    .social-row { display: flex; gap: 1rem; }
+    .social-row a { color: rgba(255,255,255,0.2); transition: color 0.3s; }
+    .social-row a:hover { color: var(--white); }
 
     /* Responsive */
-    @media (max-width: 992px) {
+    @media (max-width: 1024px) {
+      .hero-grid { display: flex; flex-direction: column; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; padding: 0 0 4rem; }
+      .section-inner { display: flex; flex-direction: column; }
+      .section-left, .section-right, .section-full { max-width: 100%; }
+      .card-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 2rem; }
+      .hero { padding: 0 2rem; }
+      .section { padding: 5rem 2rem; }
+      .hero-text h1 { font-size: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero-inner { max-width: 100%; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      body { font-size: 16px; }
-      .page-container { padding: 0 15px; }
-      .hero-content { padding: 20px; }
-      .nav-links a { font-size: 1.1rem; padding: 10px 30px; }
-      footer { flex-direction: column; gap: 10px; text-align: center; }
+      .grid-overlay { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop id="bg-video">
-    <source src="https://templatemo.com/templates/templatemo_560_astro_motion/video/gfp-astro-timelapse.mp4" type="video/mp4">
-  </video>
+  <!-- Grid overlay -->
+  <div class="grid-overlay" aria-hidden="true">
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+    <div class="col"></div><div class="col"></div><div class="col"></div><div class="col"></div>
+  </div>
 
-  <div class="page-container">
-    <div class="container-fluid">
-      <!-- Nav -->
-      <nav>
-        <span class="brand">Gianluca Volpe</span>
-        <ul class="nav-links">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-        <ul class="nav-links-mobile" id="navLinksMobile">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Nav -->
+  <nav>
+    <span style="font-family:var(--font-mono);font-size:1.2rem;letter-spacing:0.05em;">GV</span>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
 
-      <!-- Hero -->
-      <section class="hero" id="home">
-        <div class="hero-inner">
-          <div class="hero-content">
-            <h1>Gianluca Volpe</h1>
-            <div class="role">Digital Project Manager</div>
-            <p>Multilingual digital professional with 20+ years driving digital success across Italy & Spain — finance, travel, healthcare, and technology.</p>
-            <div class="hero-contact">
-              📧 <a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a> &nbsp;·&nbsp; 📞 (+39) 379-153-1031<br>
-              📍 Udine, Italy · 🌐 IT · ES · EN · CA
-            </div>
-            <a href="#experience" class="btn">View Experience</a>
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag reveal visible">Available for opportunities</div>
+        <h1>
+          <span class="line-mask"><span>Gianluca</span></span><br>
+          <span class="line-mask"><span style="color:var(--accent)">Volpe</span></span>
+        </h1>
+        <div class="role reveal visible reveal-delay-1">Digital Project Manager</div>
+        <p class="reveal visible reveal-delay-2">Multilingual digital professional with 20+ years driving digital success across Italy & Spain — finance, travel, healthcare, and technology.</p>
+        <div class="hero-contact reveal visible reveal-delay-3">
+          <a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a> &nbsp;·&nbsp; (+39) 379-153-1031<br>
+          Udine, Italy · IT · ES · EN · CA
+        </div>
+        <div class="btn-group reveal visible reveal-delay-4">
+          <a href="#experience" class="btn btn-primary">View Experience</a>
+          <a href="#contact" class="btn">Contact</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card-hero reveal visible"><div class="num">20+</div><div class="label">Years Experience</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-1"><div class="num">100+</div><div class="label">Projects Delivered</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-2"><div class="num">4</div><div class="label">Languages</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-3"><div class="num">4</div><div class="label">Industries</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-left">
+        <div class="section-tag reveal">About</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Bridging business</span></span><br>
+          <span class="line-mask"><span>&amp; technology</span></span>
+        </h2>
+        <p class="section-text reveal">My career has been built at the intersection of digital platforms, human communication, and cross-cultural problem-solving — always with a focus on clarity, accuracy, and the people on the other side of every interaction.</p>
+      </div>
+      <div class="section-right">
+        <div class="card-grid" style="margin:0;">
+          <div class="card reveal"><h4>🌍 4 Languages</h4><p>Native Italian &amp; Spanish, fluent English, working Catalan. Cross-cultural communication is my core strength.</p></div>
+          <div class="card reveal reveal-delay-1"><h4>🏢 4 Industries</h4><p>Finance, Travel, Healthcare &amp; Technology — delivering solutions across regulated and fast-paced markets.</p></div>
+          <div class="card reveal reveal-delay-2"><h4>🤝 Client-Facing PM</h4><p>Bridge between business stakeholders, creative teams and developers. Requirements engineering &amp; backlog management.</p></div>
+          <div class="card reveal reveal-delay-3"><h4>🧠 AI &amp; Transformation</h4><p>Agentic AI, prompt engineering, Azure, AEM. Certified SAFe® 6 POPM, ITIL 4, AWS Partner.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <div class="section-left">
+        <div class="section-tag reveal">Skills</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Core</span></span><br>
+          <span class="line-mask"><span>Expertise</span></span>
+        </h2>
+        <p class="section-text reveal">Four pillars of professional capability built over two decades.</p>
+      </div>
+      <div class="section-right">
+        <div class="card-grid" style="margin:0;">
+          <div class="card reveal">
+            <h4>📋 Project Management</h4>
+            <p>Agile/Scrum, JIRA, Basecamp, Asana, Float, Azure DevOps, Git, Salesforce</p>
+            <div class="tags"><span>Agile</span><span>Scrum</span><span>SAFe</span><span>JIRA</span></div>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <h4>📈 Digital Marketing</h4>
+            <p>SEO, SEM, PPC, Email Marketing, Google Analytics, GTM, HubSpot, Marketo</p>
+            <div class="tags"><span>SEO</span><span>Google Ads</span><span>Analytics</span></div>
+          </div>
+          <div class="card reveal reveal-delay-2">
+            <h4>💻 Web Development</h4>
+            <p>HTML5, CSS, JavaScript, WordPress, Drupal, AEM, Figma, Photoshop, Cinema 4D</p>
+            <div class="tags"><span>HTML/CSS</span><span>WordPress</span><span>AEM</span></div>
+          </div>
+          <div class="card reveal reveal-delay-3">
+            <h4>🤖 AI &amp; Emerging Tech</h4>
+            <p>GitHub Copilot, Cursor, Perplexity AI, NotebookLM, Zapier AI, Ollama, Prompt Engineering</p>
+            <div class="tags"><span>AI</span><span>Copilot</span><span>Prompt Eng.</span></div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- About -->
-      <section class="section" id="about">
-        <div class="section-inner">
-          <h2 class="section-title">About <span class="highlight">Me</span></h2>
-          <div class="card-grid">
-            <div class="gcard"><h4>🌍 4 Languages</h4><p>Native Italian &amp; Spanish, fluent English, working Catalan. Cross-cultural communication is my core strength.</p></div>
-            <div class="gcard"><h4>🏢 4 Industries</h4><p>Finance, Travel, Healthcare &amp; Technology — delivering solutions across regulated and fast-paced markets.</p></div>
-            <div class="gcard"><h4>🤝 Client-Facing PM</h4><p>Bridge between business stakeholders, creative teams and developers. Requirements engineering &amp; backlog management.</p></div>
-            <div class="gcard"><h4>🧠 AI &amp; Transformation</h4><p>Agentic AI, prompt engineering, Azure, AEM. Certified SAFe® 6 POPM, ITIL 4, AWS Partner.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="section" id="skills">
-        <div class="section-inner">
-          <h2 class="section-title">Core <span class="highlight">Expertise</span></h2>
-          <div class="card-grid">
-            <div class="gcard">
-              <h4>📋 Project Management</h4>
-              <p>Agile/Scrum, JIRA, Basecamp, Asana, Float, Azure DevOps, Git, Salesforce</p>
-              <div class="tags"><span>Agile</span><span>Scrum</span><span>SAFe</span><span>JIRA</span></div>
-            </div>
-            <div class="gcard">
-              <h4>📈 Digital Marketing</h4>
-              <p>SEO, SEM, PPC, Email Marketing, Google Analytics, GTM, HubSpot, Marketo</p>
-              <div class="tags"><span>SEO</span><span>Google Ads</span><span>Analytics</span></div>
-            </div>
-            <div class="gcard">
-              <h4>💻 Web Development</h4>
-              <p>HTML5, CSS, JavaScript, WordPress, Drupal, AEM, Figma, Photoshop, Cinema 4D</p>
-              <div class="tags"><span>HTML/CSS</span><span>WordPress</span><span>AEM</span></div>
-            </div>
-            <div class="gcard">
-              <h4>🤖 AI &amp; Emerging Tech</h4>
-              <p>GitHub Copilot, Cursor, Perplexity AI, NotebookLM, Zapier AI, Ollama, Prompt Engineering</p>
-              <div class="tags"><span>AI</span><span>Copilot</span><span>Prompt Eng.</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section class="section" id="experience">
-        <div class="section-inner">
-          <h2 class="section-title">20+ Years of <span class="highlight">Leadership</span></h2>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-date">May 2018 – Present</div>
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <div class="section-full">
+        <div class="section-tag reveal">Experience</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>20+ Years of</span></span><br>
+          <span class="line-mask"><span>Digital Leadership</span></span>
+        </h2>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-date">May 2018 – Present</div>
+            <div>
               <h4>Requirements Engineer / Business Analyst</h4>
               <div class="tl-company">Netcentric (Cognizant)</div>
-              <p>Led end-to-end requirements engineering for complex digital projects. Bridge between stakeholders and dev teams across finance, healthcare, and technology. Led AEM + Azure predictive analytics projects.</p>
+              <p>Led end-to-end requirements engineering for complex digital projects. Bridge between stakeholders and dev teams across finance, healthcare, and technology. AEM + Azure predictive analytics.</p>
             </div>
-            <div class="tl-item">
-              <div class="tl-date">Jun 2016 – Jun 2017</div>
+          </div>
+          <div class="tl-item reveal reveal-delay-1">
+            <div class="tl-date">Jun 2016 – Jun 2017</div>
+            <div>
               <h4>Digital Project Manager</h4>
               <div class="tl-company">CDM Barcelona – Healthcare</div>
               <p>Led cross-functional teams delivering healthcare marketing campaigns in highly regulated industry.</p>
             </div>
-            <div class="tl-item">
-              <div class="tl-date">Nov 2015 – Jun 2016</div>
+          </div>
+          <div class="tl-item reveal reveal-delay-2">
+            <div class="tl-date">Nov 2015 – Jun 2016</div>
+            <div>
               <h4>Webmaster &amp; Operations</h4>
               <div class="tl-company">Allianz Insurance</div>
               <p>Responsible for performance, visibility, and UX of allianz.es. Combined technical web management with data-driven SEO.</p>
             </div>
-            <div class="tl-item">
-              <div class="tl-date">Dec 2009 – Nov 2015</div>
+          </div>
+          <div class="tl-item reveal reveal-delay-3">
+            <div class="tl-date">Dec 2009 – Nov 2015</div>
+            <div>
               <h4>Digital Senior Project Manager</h4>
               <div class="tl-company">TravelClick</div>
-              <p>Led teams of designers, developers, and SEO specialists delivering responsive websites for international hotel clients. Managed 30+ concurrent projects.</p>
+              <p>Led teams of designers, developers, and SEO specialists delivering responsive websites for international hotel clients. 30+ concurrent projects.</p>
             </div>
-            <div class="tl-item">
-              <div class="tl-date">Sep 2004 – Apr 2008</div>
+          </div>
+          <div class="tl-item reveal reveal-delay-4">
+            <div class="tl-date">Sep 2004 – Apr 2008</div>
+            <div>
               <h4>Report Coordinator</h4>
               <div class="tl-company">CPM International Marketing</div>
               <p>Managed daily reports monitoring international marketing campaign performance.</p>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- Certifications + Languages -->
-      <section class="section" id="certifications">
-        <div class="section-inner">
-          <h2 class="section-title">Continuous <span class="highlight">Learning</span></h2>
-          <div class="card-grid">
-            <div class="gcard">
-              <h4 style="color:#9F6;margin-bottom:12px;">🤖 AI &amp; Emerging Tech</h4>
-              <div class="cert-item"><div class="cert-dot"></div><div><h4>AWS Partner: Agentic AI Essentials</h4><p>AWS – Oct 2025</p></div></div>
-              <div class="cert-item"><div class="cert-dot"></div><div><h4>AI Product Masterclass</h4><p>Alison – Sep 2025</p></div></div>
-              <div class="cert-item"><div class="cert-dot"></div><div><h4>AI for Product Managers</h4><p>Alison – Jan 2025</p></div></div>
-              <div class="cert-item"><div class="cert-dot"></div><div><h4>Prompt Engineering Certification</h4><p>Quantum Leap Academy – Dec 2024</p></div></div>
-            </div>
-            <div class="gcard">
-              <h4 style="color:#3CF;margin-bottom:12px;">📋 PM, Cloud &amp; Security</h4>
-              <div class="cert-item"><div class="cert-dot" style="background:#3CF"></div><div><h4>SAFe® 6 Product Owner/PM</h4><p>Scaled Agile, Inc. – Feb 2024</p></div></div>
-              <div class="cert-item"><div class="cert-dot" style="background:#3CF"></div><div><h4>ITIL 4 Fundamentals</h4><p>IT Service Management</p></div></div>
-              <div class="cert-item"><div class="cert-dot" style="background:#3CF"></div><div><h4>Microsoft Azure Fundamentals</h4><p>Microsoft – Feb 2025</p></div></div>
-              <div class="cert-item"><div class="cert-dot" style="background:#3CF"></div><div><h4>Introduction to Cybersecurity</h4><p>Cisco – Feb 2025</p></div></div>
-            </div>
-            <div class="gcard">
-              <h4 style="color:#9F6;margin-bottom:16px;">🌐 Languages</h4>
-              <div class="lang-item"><div class="lang-head"><span>Italian</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:100%"></div></div></div>
-              <div class="lang-item"><div class="lang-head"><span>Spanish</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:100%"></div></div></div>
-              <div class="lang-item"><div class="lang-head"><span>English</span><span>Fluent</span></div><div class="lang-bar"><div class="fill" style="width:85%"></div></div></div>
-              <div class="lang-item"><div class="lang-head"><span>Catalan</span><span>Working</span></div><div class="lang-bar"><div class="fill" style="width:60%"></div></div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section class="section" id="contact">
-        <div class="section-inner">
-          <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
-          <div class="contact-grid">
-            <div class="form-box">
-              <form action="mailto:gianluca.volpe@pm.me" method="post" enctype="text/plain">
-                <div class="fg"><label>Your Name</label><input type="text" name="name" required></div>
-                <div class="fg"><label>Your Email</label><input type="email" name="email" required></div>
-                <div class="fg"><label>Message</label><textarea name="message" rows="4" required></textarea></div>
-                <button type="submit" class="btn" style="width:100%;">Send Message</button>
-              </form>
-            </div>
-            <div>
-              <div class="ci"><div class="ci-icon">📞</div><div class="ci-details"><h4>Phone</h4><p>(+39) 379-153-1031</p></div></div>
-              <div class="ci"><div class="ci-icon">📧</div><div class="ci-details"><h4>Email</h4><a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a></div></div>
-              <div class="ci"><div class="ci-icon">📍</div><div class="ci-details"><h4>Location</h4><p>Moruzzo (UD), Italy</p></div></div>
-              <div class="ci"><div class="ci-icon">🔗</div><div class="ci-details"><h4>LinkedIn</h4><a href="https://linkedin.com/in/gianlucavolpe" target="_blank">linkedin.com/in/gianlucavolpe</a></div></div>
-              <div class="ci"><div class="ci-icon">💻</div><div class="ci-details"><h4>GitHub</h4><a href="https://github.com/skylhub" target="_blank">github.com/skylhub</a></div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <p>© 2026 Gianluca Volpe – Digital Project Manager</p>
-        <div class="social-row">
-          <a href="https://linkedin.com/in/gianlucavolpe" target="_blank" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://github.com/skylhub" target="_blank" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          </a>
-          <a href="mailto:gianluca.volpe@pm.me" aria-label="Email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-        </div>
-      </footer>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Certs + Languages -->
+  <section class="section" id="certifications">
+    <div class="section-inner">
+      <div class="section-left">
+        <div class="section-tag reveal">Certifications</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Continuous</span></span><br>
+          <span class="line-mask"><span>Learning</span></span>
+        </h2>
+        <div class="reveal">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">🤖 AI &amp; Emerging Tech</h4>
+          <div class="cert-list">
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>AWS Partner: Agentic AI Essentials</h4><p>AWS – Oct 2025</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>AI Product Masterclass</h4><p>Alison – Sep 2025</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>AI for Product Managers</h4><p>Alison – Jan 2025</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>Prompt Engineering Certification</h4><p>Quantum Leap Academy – Dec 2024</p></div></div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1" style="margin-top:2rem;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">📋 PM, Cloud &amp; Security</h4>
+          <div class="cert-list">
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>SAFe® 6 Product Owner/PM</h4><p>Scaled Agile, Inc. – Feb 2024</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>ITIL 4 Fundamentals</h4><p>IT Service Management</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>Microsoft Azure Fundamentals</h4><p>Microsoft – Feb 2025</p></div></div>
+            <div class="cert-item"><div class="cert-dot"></div><div><h4>Introduction to Cybersecurity</h4><p>Cisco – Feb 2025</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="section-right">
+        <div class="section-tag reveal">Languages</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Multilingual</span></span><br>
+          <span class="line-mask"><span>Professional</span></span>
+        </h2>
+        <div class="lang-list reveal">
+          <div class="lang-item"><div class="lang-head"><span>Italian</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:0%" data-width="100"></div></div></div>
+          <div class="lang-item"><div class="lang-head"><span>Spanish</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:0%" data-width="100"></div></div></div>
+          <div class="lang-item"><div class="lang-head"><span>English</span><span>Fluent</span></div><div class="lang-bar"><div class="fill" style="width:0%" data-width="85"></div></div></div>
+          <div class="lang-item"><div class="lang-head"><span>Catalan</span><span>Working</span></div><div class="lang-bar"><div class="fill" style="width:0%" data-width="60"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <div class="section-full">
+        <div class="section-tag reveal">Contact</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Get in</span></span><br>
+          <span class="line-mask"><span>Touch</span></span>
+        </h2>
+        <div class="contact-grid reveal">
+          <form class="fg" action="mailto:gianluca.volpe@pm.me" method="post" enctype="text/plain">
+            <div class="fg"><label>Name</label><input type="text" name="name" required></div>
+            <div class="fg"><label>Email</label><input type="email" name="email" required></div>
+            <div class="fg"><label>Message</label><textarea name="message" rows="4" required></textarea></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          </form>
+          <div>
+            <div class="ci"><div class="ci-icon">📞</div><div class="ci-details"><h4>Phone</h4><p>(+39) 379-153-1031</p></div></div>
+            <div class="ci"><div class="ci-icon">📧</div><div class="ci-details"><h4>Email</h4><a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a></div></div>
+            <div class="ci"><div class="ci-icon">📍</div><div class="ci-details"><h4>Location</h4><p>Moruzzo (UD), Italy</p></div></div>
+            <div class="ci"><div class="ci-icon">🔗</div><div class="ci-details"><h4>LinkedIn</h4><a href="https://linkedin.com/in/gianlucavolpe" target="_blank">linkedin.com/in/gianlucavolpe</a></div></div>
+            <div class="ci"><div class="ci-icon">💻</div><div class="ci-details"><h4>GitHub</h4><a href="https://github.com/skylhub" target="_blank">github.com/skylhub</a></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Gianluca Volpe – Digital Project Manager</p>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/gianlucavolpe" target="_blank" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/skylhub" target="_blank" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+    </div>
+  </footer>
 
   <script>
-    document.getElementById('hamburger').addEventListener('click', function() {
-      document.getElementById('navLinksMobile').classList.toggle('active');
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('active');
     });
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
         if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-        document.getElementById('navLinksMobile').classList.remove('active');
+        document.getElementById('mobileMenu').classList.remove('active');
       });
     });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Also reveal line-mask children
+          entry.target.querySelectorAll('.line-mask').forEach(el => el.classList.add('revealed'));
+          // Animate lang bars
+          entry.target.querySelectorAll('.lang-bar .fill').forEach(el => {
+            const w = el.getAttribute('data-width');
+            if (w) setTimeout(() => el.style.width = w + '%', 300);
+          });
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Also observe line-mask directly
+    document.querySelectorAll('.line-mask').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
