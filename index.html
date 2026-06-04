@@ -89,21 +89,39 @@
       position: absolute; inset: 0;
       overflow: hidden;
     }
-    .hero-bg img {
+    .hero-bg .slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      animation: slideShow 24s ease-in-out infinite;
+    }
+    .hero-bg .slide:nth-child(1) { animation-delay: 0s; }
+    .hero-bg .slide:nth-child(2) { animation-delay: 8s; }
+    .hero-bg .slide:nth-child(3) { animation-delay: 16s; }
+    .hero-bg .slide img {
       position: absolute;
       top: -10%; left: -10%;
       width: 120%; height: 120%;
       object-fit: cover;
-      animation: heroZoom 20s ease-in-out infinite alternate;
+      animation: heroZoom 24s ease-in-out infinite;
     }
+    .hero-bg .slide:nth-child(1) img { animation-delay: 0s; }
+    .hero-bg .slide:nth-child(2) img { animation-delay: 8s; }
+    .hero-bg .slide:nth-child(3) img { animation-delay: 16s; }
     .hero-bg::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%);
-      z-index: 1;
+      z-index: 2;
+    }
+    @keyframes slideShow {
+      0%, 20%   { opacity: 0; }
+      25%, 45%  { opacity: 1; }
+      50%, 100% { opacity: 0; }
     }
     @keyframes heroZoom {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.15); }
+      0%   { transform: scale(1); filter: blur(0px); }
+      30%  { transform: scale(1.08); filter: blur(0px); }
+      60%  { transform: scale(1.12); filter: blur(0px); }
+      100% { transform: scale(1.15); filter: blur(1.5px); }
     }
     /* Bokeh spheres — 3 depths: far (small, slow), mid (medium), near (large, fast) */
     .bokeh {
@@ -464,7 +482,9 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="hero-bg.jpg" alt="Alpine valley landscape" aria-hidden="true">
+      <div class="slide"><img src="hero-bg.jpg" alt="" aria-hidden="true"></div>
+      <div class="slide"><img src="hero-2.jpg" alt="" aria-hidden="true"></div>
+      <div class="slide"><img src="hero-3.jpg" alt="" aria-hidden="true"></div>
     </div>
     <div class="hero-grid" style="position:relative;z-index:2;">
       <div class="hero-text">
