@@ -5,200 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gianluca Volpe – Digital Project Manager</title>
   <meta name="description" content="Gianluca Volpe - Digital Project Manager CV. Multilingual digital professional with 20+ years of experience.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0e27'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%2300ffcc' font-family='sans-serif'%3EGV%3C/text%3E%3C/svg%3E"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%23ff2244' font-family='sans-serif'%3EGV%3C/text%3E%3C/svg%3E"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #060b24;
+      background: #000;
       color: #ffffff;
       overflow-x: hidden;
     }
 
-    /* ===== BOKEH BACKGROUND — Red palette, dark tone ===== */
+    /* ===== BOKEH — 10,000 spheres, three sizes, transparent, dark-red ===== */
     .bokeh-bg {
       position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
       z-index: -1; overflow: hidden;
-      background: radial-gradient(ellipse at 50% 30%, #1a0808 0%, #0d0404 40%, #050202 100%);
+      background: #000;
     }
-    .bokeh-sphere {
-      position: absolute; border-radius: 50%;
-      filter: blur(90px);
-      will-change: transform, opacity;
-      mix-blend-mode: screen;
-    }
-    /* Red / crimson / burgundy palette — 30 spheres, 50% opacity, varied sizes */
-    .bs-01 { width: 900px; height: 900px; top: -300px; left: -200px;
-      background: radial-gradient(circle at 40% 60%, rgba(255,30,60,0.25) 0%, rgba(200,0,30,0.10) 50%, transparent 80%);
-      animation: bokehFloat 38s ease-in-out infinite; }
-    .bs-02 { width: 650px; height: 650px; top: 5%; left: 15%;
-      background: radial-gradient(circle at 60% 40%, rgba(180,0,50,0.22) 0%, rgba(140,0,30,0.08) 50%, transparent 80%);
-      animation: bokehFloat 42s ease-in-out infinite -4s; }
-    .bs-03 { width: 400px; height: 400px; top: 12%; left: 45%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,50,80,0.18) 0%, rgba(220,20,40,0.06) 50%, transparent 80%);
-      animation: bokehFloat 35s ease-in-out infinite -8s; }
-    .bs-04 { width: 550px; height: 550px; top: 20%; left: 5%;
-      background: radial-gradient(circle at 30% 70%, rgba(120,0,30,0.20) 0%, transparent 60%);
-      animation: bokehFloat 40s ease-in-out infinite -12s; }
-    .bs-05 { width: 780px; height: 780px; top: 30%; left: 40%;
-      background: radial-gradient(circle at 50% 30%, rgba(220,10,40,0.20) 0%, rgba(160,0,20,0.07) 50%, transparent 80%);
-      animation: bokehFloat 45s ease-in-out infinite -2s; }
-    .bs-06 { width: 350px; height: 350px; top: 40%; left: 20%;
-      background: radial-gradient(circle at 50% 50%, rgba(200,40,70,0.15) 0%, transparent 60%);
-      animation: bokehFloat 30s ease-in-out infinite -16s; }
-    .bs-07 { width: 720px; height: 720px; top: 50%; left: 60%;
-      background: radial-gradient(circle at 60% 40%, rgba(180,0,40,0.18) 0%, rgba(100,0,20,0.06) 50%, transparent 80%);
-      animation: bokehFloat 36s ease-in-out infinite -20s; }
-    .bs-08 { width: 500px; height: 500px; top: 60%; left: 0%;
-      background: radial-gradient(circle at 40% 60%, rgba(255,60,90,0.15) 0%, transparent 60%);
-      animation: bokehFloat 33s ease-in-out infinite -24s; }
-    .bs-09 { width: 850px; height: 850px; top: 70%; left: 25%;
-      background: radial-gradient(circle at 50% 50%, rgba(140,0,40,0.18) 0%, rgba(80,0,20,0.06) 50%, transparent 80%);
-      animation: bokehFloat 44s ease-in-out infinite -6s; }
-    .bs-10 { width: 300px; height: 300px; top: 80%; left: 50%;
-      background: radial-gradient(circle at 50% 50%, rgba(220,30,60,0.12) 0%, transparent 60%);
-      animation: bokehFloat 28s ease-in-out infinite -10s; }
-    .bs-11 { width: 680px; height: 680px; top: -100px; right: -150px;
-      background: radial-gradient(circle at 40% 60%, rgba(200,20,50,0.22) 0%, rgba(150,0,30,0.08) 50%, transparent 80%);
-      animation: bokehFloat 39s ease-in-out infinite -14s; }
-    .bs-12 { width: 450px; height: 450px; top: 15%; right: 10%;
-      background: radial-gradient(circle at 60% 50%, rgba(255,40,70,0.18) 0%, rgba(200,10,40,0.06) 50%, transparent 80%);
-      animation: bokehFloat 34s ease-in-out infinite -18s; }
-    .bs-13 { width: 600px; height: 600px; top: 35%; right: 30%;
-      background: radial-gradient(circle at 30% 30%, rgba(160,0,50,0.16) 0%, transparent 60%);
-      animation: bokehFloat 41s ease-in-out infinite -22s; }
-    .bs-14 { width: 380px; height: 380px; top: 55%; right: 5%;
-      background: radial-gradient(circle at 50% 50%, rgba(220,50,80,0.14) 0%, transparent 60%);
-      animation: bokehFloat 31s ease-in-out infinite -26s; }
-    .bs-15 { width: 530px; height: 530px; top: 65%; right: 20%;
-      background: radial-gradient(circle at 60% 40%, rgba(180,10,40,0.18) 0%, rgba(100,0,20,0.06) 50%, transparent 80%);
-      animation: bokehFloat 37s ease-in-out infinite -30s; }
-    .bs-16 { width: 920px; height: 920px; bottom: -300px; right: -200px;
-      background: radial-gradient(circle at 50% 40%, rgba(130,0,40,0.20) 0%, rgba(80,0,20,0.07) 50%, transparent 80%);
-      animation: bokehFloat 43s ease-in-out infinite -3s; }
-    .bs-17 { width: 480px; height: 480px; top: 45%; left: 50%;
-      background: radial-gradient(circle at 50% 50%, rgba(200,60,90,0.12) 0%, transparent 60%);
-      animation: bokehFloat 29s ease-in-out infinite -7s; }
-    .bs-18 { width: 320px; height: 320px; top: 10%; left: 70%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,70,100,0.10) 0%, transparent 60%);
-      animation: bokehFloat 26s ease-in-out infinite -11s; }
-    .bs-19 { width: 750px; height: 750px; top: 75%; left: 10%;
-      background: radial-gradient(circle at 40% 60%, rgba(150,0,30,0.16) 0%, transparent 60%);
-      animation: bokehFloat 46s ease-in-out infinite -15s; }
-    .bs-20 { width: 260px; height: 260px; bottom: 15%; right: 40%;
-      background: radial-gradient(circle at 50% 50%, rgba(220,20,50,0.10) 0%, transparent 60%);
-      animation: bokehFloat 27s ease-in-out infinite -19s; }
-    /* Extra small accent spheres */
-    .bs-21 { width: 200px; height: 200px; top: 28%; left: 35%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,80,110,0.08) 0%, transparent 60%);
-      animation: bokehFloat 22s ease-in-out infinite -23s; }
-    .bs-22 { width: 150px; height: 150px; top: 72%; left: 55%;
-      background: radial-gradient(circle at 50% 50%, rgba(200,30,60,0.07) 0%, transparent 60%);
-      animation: bokehFloat 20s ease-in-out infinite -27s; }
-    .bs-23 { width: 180px; height: 180px; top: 8%; right: 45%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,50,80,0.06) 0%, transparent 60%);
-      animation: bokehFloat 24s ease-in-out infinite -31s; }
-    .bs-24 { width: 240px; height: 240px; bottom: 5%; left: 45%;
-      background: radial-gradient(circle at 50% 50%, rgba(180,10,40,0.08) 0%, transparent 60%);
-      animation: bokehFloat 23s ease-in-out infinite -35s; }
-    /* Deep burgundy undertones */
-    .bs-25 { width: 500px; height: 500px; top: 22%; left: 22%;
-      background: radial-gradient(circle at 50% 50%, rgba(80,0,20,0.12) 0%, transparent 60%);
-      animation: bokehFloat 47s ease-in-out infinite -1s; }
-    .bs-26 { width: 350px; height: 350px; bottom: 25%; left: 15%;
-      background: radial-gradient(circle at 50% 50%, rgba(60,0,15,0.10) 0%, transparent 60%);
-      animation: bokehFloat 48s ease-in-out infinite -5s; }
-    .bs-27 { width: 420px; height: 420px; top: 5%; left: 80%;
-      background: radial-gradient(circle at 50% 50%, rgba(90,0,25,0.10) 0%, transparent 60%);
-      animation: bokehFloat 49s ease-in-out infinite -9s; }
-    .bs-28 { width: 280px; height: 280px; bottom: 10%; left: 75%;
-      background: radial-gradient(circle at 50% 50%, rgba(70,0,20,0.08) 0%, transparent 60%);
-      animation: bokehFloat 44s ease-in-out infinite -13s; }
-    .bs-29 { width: 180px; height: 180px; top: 50%; left: 5%;
-      background: radial-gradient(circle at 50% 50%, rgba(100,0,30,0.10) 0%, transparent 60%);
-      animation: bokehFloat 35s ease-in-out infinite -17s; }
-    .bs-30 { width: 220px; height: 220px; bottom: 30%; left: 40%;
-      background: radial-gradient(circle at 50% 50%, rgba(50,0,10,0.08) 0%, transparent 60%);
-      animation: bokehFloat 50s ease-in-out infinite -21s; }
-    /* Tiny glints */
-    .bokeh-glint {
-      position: absolute; border-radius: 50%;
-      filter: blur(15px);
-      animation: glintPulse 5s ease-in-out infinite;
-    }
-    .bg-1 { width: 50px; height: 50px; top: 15%; left: 20%; background: rgba(255,50,50,0.03); animation-delay: 0s; }
-    .bg-2 { width: 40px; height: 40px; top: 55%; left: 45%; background: rgba(255,30,50,0.025); animation-delay: -1.5s; }
-    .bg-3 { width: 60px; height: 60px; top: 30%; right: 25%; background: rgba(255,40,60,0.025); animation-delay: -3s; }
-    .bg-4 { width: 35px; height: 35px; bottom: 35%; right: 35%; background: rgba(200,20,40,0.02); animation-delay: -4s; }
-    .bg-5 { width: 45px; height: 45px; bottom: 20%; left: 35%; background: rgba(255,60,80,0.02); animation-delay: -2s; }
-    .bg-6 { width: 30px; height: 30px; top: 40%; left: 70%; background: rgba(220,30,50,0.02); animation-delay: -1s; }
-    .bg-7 { width: 55px; height: 55px; bottom: 40%; right: 15%; background: rgba(180,10,30,0.02); animation-delay: -3.5s; }
-    .bg-8 { width: 25px; height: 25px; top: 70%; left: 30%; background: rgba(255,70,90,0.015); animation-delay: -0.5s; }
 
-    @keyframes bokehFloat {
-      0%,100% { transform: translate(0px, 0px) scale(1); opacity: 0.35; }
-      12% { transform: translate(20px, -25px) scale(1.05); opacity: 0.50; }
-      25% { transform: translate(-15px, 10px) scale(1.02); opacity: 0.42; }
-      37% { transform: translate(-30px, -12px) scale(1.03); opacity: 0.48; }
-      50% { transform: translate(12px, 20px) scale(0.97); opacity: 0.38; }
-      62% { transform: translate(25px, 15px) scale(1.01); opacity: 0.45; }
-      75% { transform: translate(-10px, -20px) scale(1.04); opacity: 0.50; }
-      87% { transform: translate(15px, 5px) scale(0.98); opacity: 0.40; }
+    /* ---- SMALL (70%) ---- */
+    .bokeh-bg i.s {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,30,60,0.08) 0%, transparent 70%);
+      width: 12px; height: 12px;
     }
-    @keyframes glintPulse {
-      0%,100% { opacity: 0.10; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(1.4); }
+    /* ---- MEDIUM (20%) ---- */
+    .bokeh-bg i.m {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(200,20,50,0.12) 0%, transparent 70%);
+      width: 30px; height: 30px;
+    }
+    /* ---- LARGE (10%) ---- */
+    .bokeh-bg i.l {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(180,10,40,0.18) 0%, transparent 70%);
+      width: 70px; height: 70px;
+    }
+
+    /* ---- Common animation ---- */
+    .bokeh-bg i {
+      animation: drft 60s ease-in-out infinite alternate;
+    }
+    @keyframes drft {
+      0%   { transform: translate(0px,0px) scale(1);   opacity: 0.3; }
+      25%  { transform: translate(30px,-20px) scale(1.1); opacity: 0.6; }
+      50%  { transform: translate(-20px,30px) scale(0.9); opacity: 0.2; }
+      75%  { transform: translate(-30px,-15px) scale(1.05); opacity: 0.5; }
+      100% { transform: translate(25px,15px) scale(0.95); opacity: 0.35; }
     }
 
     /* ===== SVG PATTERN OVERLAY ===== */
     .pattern-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1; pointer-events: none; opacity: 0.15;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%2300ffcc'/%3E%3Ccircle cx='0' cy='0' r='1' fill='%23ff00d4'/%3E%3Ccircle cx='60' cy='0' r='1' fill='%2300ffcc'/%3E%3Ccircle cx='0' cy='60' r='1' fill='%23ff00d4'/%3E%3C/svg%3E");
+      z-index: -1; pointer-events: none; opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='%23ff2244'/%3E%3Ccircle cx='0' cy='0' r='0.7' fill='%23ff2244'/%3E%3Ccircle cx='60' cy='0' r='0.7' fill='%23ff2244'/%3E%3Ccircle cx='0' cy='60' r='0.7' fill='%23ff2244'/%3E%3C/svg%3E");
       background-size: 60px 60px;
     }
 
     /* ===== DECORATIVE CIRCLES ===== */
     .deco-circle {
       position: fixed; border-radius: 50%;
-      border: 1px solid rgba(0,255,204,0.08);
+      border: 1px solid rgba(255,30,60,0.05);
       pointer-events: none; z-index: -1;
-      animation: decoFloat 30s ease-in-out infinite;
+      animation: decoFloat 40s ease-in-out infinite;
     }
-    .dc-1 { width: 400px; height: 400px; top: 5%; right: -100px; }
-    .dc-2 { width: 250px; height: 250px; bottom: 20%; left: -80px; animation-delay: -10s; border-color: rgba(255,0,128,0.06); }
-    .dc-3 { width: 350px; height: 350px; top: 60%; right: 5%; animation-delay: -20s; border-color: rgba(0,148,255,0.06); }
-    @keyframes decoFloat { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(5deg); } }
+    .dc-1 { width: 500px; height: 500px; top: 5%; right: -150px; }
+    .dc-2 { width: 300px; height: 300px; bottom: 20%; left: -100px; animation-delay: -15s; }
+    .dc-3 { width: 400px; height: 400px; top: 60%; right: 5%; animation-delay: -30s; }
+    @keyframes decoFloat { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-40px) rotate(5deg); } }
 
     /* ===== NAVIGATION ===== */
     nav {
       position: fixed; top: 0; width: 100%; padding: 18px 50px;
-      background: rgba(6,11,36,0.85);
+      background: rgba(0,0,0,0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,30,60,0.08);
       z-index: 1000;
     }
     .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .logo-icon {
       width: 36px; height: 36px; border-radius: 10px;
-      background: linear-gradient(135deg, #00ffcc, #0088ff);
+      background: linear-gradient(135deg, #ff2244, #cc0033);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 800; color: #060b24; font-size: 15px;
-      box-shadow: 0 0 25px rgba(0,255,204,0.25);
+      font-weight: 800; color: #000; font-size: 15px;
+      box-shadow: 0 0 25px rgba(255,30,60,0.25);
     }
     .logo-text { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
-      color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; font-weight: 500;
       letter-spacing: 0.3px; transition: all 0.3s; position: relative;
     }
-    .nav-links a:hover { color: #00ffcc; }
+    .nav-links a:hover { color: #ff2244; }
     .nav-links a.active { color: #fff; }
     .nav-links a.active::after {
       content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
-      height: 2px; background: linear-gradient(90deg, #00ffcc, #0088ff);
+      height: 2px; background: #ff2244;
       border-radius: 2px;
     }
     .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1001; }
@@ -208,13 +111,13 @@
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-7px); }
     .nav-links-mobile {
       display: none; position: fixed; top: 72px; left: 0; width: 100%;
-      background: rgba(6,11,36,0.98); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.98); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,30,60,0.06);
       flex-direction: column; list-style: none; z-index: 999; padding: 16px;
     }
     .nav-links-mobile.active { display: flex; }
-    .nav-links-mobile a { color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px; font-size: 15px; border-radius: 10px; }
-    .nav-links-mobile a:hover { background: rgba(0,255,204,0.06); color: #00ffcc; }
+    .nav-links-mobile a { color: rgba(255,255,255,0.6); text-decoration: none; padding: 14px; font-size: 15px; border-radius: 10px; }
+    .nav-links-mobile a:hover { background: rgba(255,30,60,0.06); color: #ff2244; }
 
     /* ===== HERO ===== */
     .hero {
@@ -231,26 +134,24 @@
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 6px 16px; border-radius: 50px;
-      background: rgba(0,255,204,0.08);
-      border: 1px solid rgba(0,255,204,0.15);
-      font-size: 11px; font-weight: 600; color: #00ffcc;
+      background: rgba(255,30,60,0.08);
+      border: 1px solid rgba(255,30,60,0.15);
+      font-size: 11px; font-weight: 600; color: #ff2244;
       letter-spacing: 1px; margin-bottom: 16px;
     }
+    .hero-badge svg { stroke: #ff2244; }
     .hero-text h1 {
       font-size: clamp(36px, 5vw, 52px); font-weight: 800; line-height: 1.05;
-      margin-bottom: 6px; letter-spacing: -1px;
+      margin-bottom: 6px; letter-spacing: -1px; color: #fff;
     }
-    .hero-text h1 .gradient {
-      background: linear-gradient(135deg, #00ffcc, #0088ff, #a855f7);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
+    .hero-text h1 .accent { color: #ff2244; }
     .hero-role {
-      font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);
+      font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.35);
       letter-spacing: 2px; margin-bottom: 20px;
     }
-    .hero-text p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.45); max-width: 480px; margin-bottom: 18px; }
-    .hero-contact-strip { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.9; margin-bottom: 28px; }
-    .hero-contact-strip a { color: #00ffcc; text-decoration: none; }
+    .hero-text p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.35); max-width: 480px; margin-bottom: 18px; }
+    .hero-contact-strip { font-size: 13px; color: rgba(255,255,255,0.25); line-height: 1.9; margin-bottom: 28px; }
+    .hero-contact-strip a { color: #ff2244; text-decoration: none; }
     .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
@@ -259,17 +160,17 @@
       transition: all 0.3s; cursor: pointer; border: none;
     }
     .btn-primary {
-      background: linear-gradient(135deg, #00ffcc, #0088ff);
-      color: #060b24; box-shadow: 0 4px 20px rgba(0,255,204,0.2);
+      background: linear-gradient(135deg, #ff2244, #cc0033);
+      color: #000; box-shadow: 0 4px 20px rgba(255,30,60,0.2);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,204,0.3); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,30,60,0.3); }
     .btn-outline {
-      background: transparent; border: 1.5px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.7);
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
     }
-    .btn-outline:hover { border-color: #00ffcc; color: #00ffcc; }
+    .btn-outline:hover { border-color: #ff2244; color: #ff2244; }
 
-    /* ===== HERO VISUAL - 3D STACKED CARDS ===== */
+    /* ===== HERO VISUAL ===== */
     .hero-visual { position: relative; animation: fadeUp 1s ease-out 0.3s both; perspective: 1000px; }
     .stack-cards { position: relative; width: 100%; height: 400px; }
     .stack-card {
@@ -279,42 +180,28 @@
     }
     .stack-card.sc-1 {
       top: 30px; right: 30px; z-index: 3;
-      background: rgba(0,255,204,0.08);
-      border: 1px solid rgba(0,255,204,0.2);
-      box-shadow: 0 10px 40px rgba(0,255,204,0.1);
+      background: rgba(255,30,60,0.06);
+      border: 1px solid rgba(255,30,60,0.12);
+      box-shadow: 0 10px 40px rgba(255,30,60,0.08);
       transform: rotate(3deg) translateZ(20px);
     }
     .stack-card.sc-2 {
       top: 90px; right: 60px; z-index: 2;
-      background: rgba(168,85,247,0.06);
-      border: 1px solid rgba(168,85,247,0.15);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
       transform: rotate(-2deg) translateZ(10px);
     }
     .stack-card.sc-3 {
       top: 150px; right: 90px; z-index: 1;
-      background: rgba(0,136,255,0.06);
-      border: 1px solid rgba(0,136,255,0.15);
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.04);
       transform: rotate(1deg) translateZ(0px);
     }
-    .stack-card .sc-label { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .stack-card .sc-label { font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
     .stack-card .sc-value { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-    .stack-card .sc-value.green { color: #00ffcc; }
-    .stack-card .sc-value.purple { color: #a855f7; }
-    .stack-card .sc-value.blue { color: #60a5fa; }
-    .stack-card .sc-sub { font-size: 12px; color: rgba(255,255,255,0.35); }
-
-    /* Floating particles */
-    .particle {
-      position: absolute; width: 4px; height: 4px;
-      background: #00ffcc; border-radius: 50%;
-      animation: particleFloat 6s ease-in-out infinite;
-    }
-    .p1 { top: 10%; left: 10%; animation-delay: 0s; }
-    .p2 { top: 30%; left: 80%; width: 3px; height: 3px; animation-delay: -2s; background: #a855f7; }
-    .p3 { top: 70%; left: 5%; width: 5px; height: 5px; animation-delay: -4s; background: #60a5fa; }
-    .p4 { top: 50%; left: 70%; width: 3px; height: 3px; animation-delay: -1s; }
-    .p5 { top: 80%; left: 40%; animation-delay: -3s; background: #a855f7; }
-    @keyframes particleFloat { 0%,100% { transform: translateY(0) scale(1); opacity: 0.4; } 50% { transform: translateY(-20px) scale(1.5); opacity: 1; } }
+    .stack-card .sc-value.red { color: #ff2244; }
+    .stack-card .sc-value.muted { color: rgba(255,255,255,0.5); }
+    .stack-card .sc-sub { font-size: 12px; color: rgba(255,255,255,0.25); }
 
     /* ===== SECTIONS ===== */
     .section { padding: 90px 50px; position: relative; }
@@ -322,32 +209,32 @@
     .section-label {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 4px 14px; border-radius: 50px;
-      background: rgba(0,255,204,0.06); border: 1px solid rgba(0,255,204,0.1);
-      font-size: 10px; font-weight: 600; color: #00ffcc;
+      background: rgba(255,30,60,0.06); border: 1px solid rgba(255,30,60,0.1);
+      font-size: 10px; font-weight: 600; color: #ff2244;
       letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
     }
     .section-title {
       font-size: clamp(26px, 3vw, 34px); font-weight: 800; margin-bottom: 40px;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.5px; color: #fff;
     }
 
     /* ===== GLASS CARDS ===== */
     .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
     .gcard {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.04);
       border-radius: 20px; padding: 28px;
       backdrop-filter: blur(12px);
       transition: all 0.4s; position: relative; overflow: hidden;
     }
     .gcard::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,30,60,0.08), transparent);
     }
-    .gcard:hover { transform: translateY(-4px); border-color: rgba(0,255,204,0.15); }
+    .gcard:hover { transform: translateY(-4px); border-color: rgba(255,30,60,0.12); }
     .gcard:hover::after {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(0,255,204,0.04), transparent 60%);
+      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,30,60,0.04), transparent 60%);
       pointer-events: none;
     }
     .gcard-icon {
@@ -355,104 +242,104 @@
       display: flex; align-items: center; justify-content: center;
     }
     .gcard-icon svg { width: 22px; height: 22px; }
-    .gcard h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .gcard p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    .gcard h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .gcard p { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.6; }
     .gcard .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
     .gcard .tags span {
       padding: 2px 10px; border-radius: 20px;
       font-size: 10px; font-weight: 600;
-      background: rgba(0,255,204,0.06);
-      border: 1px solid rgba(0,255,204,0.1);
-      color: rgba(0,255,204,0.7);
+      background: rgba(255,30,60,0.06);
+      border: 1px solid rgba(255,30,60,0.08);
+      color: rgba(255,30,60,0.7);
     }
 
     /* ===== TIMELINE ===== */
     .timeline { max-width: 750px; margin: 0 auto; }
     .tl-item {
       position: relative; padding: 8px 0 24px 36px;
-      border-left: 1.5px solid rgba(0,255,204,0.15);
+      border-left: 1.5px solid rgba(255,30,60,0.12);
     }
     .tl-item:last-child { border-left-color: transparent; padding-bottom: 0; }
     .tl-item::before {
       content: ''; position: absolute; left: -5px; top: 12px;
       width: 9px; height: 9px; border-radius: 50%;
-      background: #00ffcc; box-shadow: 0 0 15px rgba(0,255,204,0.3);
+      background: #ff2244; box-shadow: 0 0 15px rgba(255,30,60,0.3);
     }
-    .tl-item .tl-date { font-size: 11px; color: #00ffcc; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-    .tl-item h4 { font-size: 16px; font-weight: 700; margin: 4px 0 2px; }
-    .tl-item .tl-company { font-size: 13px; color: #a855f7; font-weight: 500; margin-bottom: 6px; }
-    .tl-item p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+    .tl-item .tl-date { font-size: 11px; color: #ff2244; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+    .tl-item h4 { font-size: 16px; font-weight: 700; margin: 4px 0 2px; color: #fff; }
+    .tl-item .tl-company { font-size: 13px; color: #ff4466; font-weight: 500; margin-bottom: 6px; }
+    .tl-item p { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.7; }
 
-    /* ===== CERT ITEM ===== */
+    /* ===== CERT ===== */
     .cert-item {
       display: flex; align-items: flex-start; gap: 12px;
       padding: 14px 16px; margin-bottom: 8px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.03);
       border-radius: 12px; transition: all 0.3s;
     }
-    .cert-item:hover { background: rgba(255,255,255,0.03); border-color: rgba(0,255,204,0.1); }
+    .cert-item:hover { border-color: rgba(255,30,60,0.08); }
     .cert-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-    .cert-item h4 { font-size: 13px; font-weight: 600; }
-    .cert-item p { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+    .cert-item h4 { font-size: 13px; font-weight: 600; color: #fff; }
+    .cert-item p { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 2px; }
 
     /* ===== LANGUAGE BARS ===== */
     .lang-item { margin-bottom: 14px; }
-    .lang-item .lang-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-    .lang-item .lang-head span:last-child { color: rgba(255,255,255,0.3); font-weight: 400; }
-    .lang-item .lang-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
-    .lang-item .lang-bar .fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #00ffcc, #0088ff); }
+    .lang-item .lang-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #fff; }
+    .lang-item .lang-head span:last-child { color: rgba(255,255,255,0.25); font-weight: 400; }
+    .lang-item .lang-bar { width: 100%; height: 4px; background: rgba(255,255,255,0.04); border-radius: 2px; overflow: hidden; }
+    .lang-item .lang-bar .fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #ff2244, #cc0033); }
 
     /* ===== CONTACT ===== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; align-items: start; }
     .form-box {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.04);
       border-radius: 20px; padding: 32px;
     }
     .fg { margin-bottom: 18px; }
-    .fg label { display: block; margin-bottom: 6px; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; letter-spacing: 0.5px; }
+    .fg label { display: block; margin-bottom: 6px; font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 500; letter-spacing: 0.5px; }
     .fg input, .fg textarea {
       width: 100%; padding: 12px 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
       border-radius: 10px; color: #fff; font-size: 14px;
       transition: all 0.3s; font-family: inherit;
     }
-    .fg input:focus, .fg textarea:focus { outline: none; border-color: rgba(0,255,204,0.3); background: rgba(255,255,255,0.05); box-shadow: 0 0 15px rgba(0,255,204,0.05); }
+    .fg input:focus, .fg textarea:focus { outline: none; border-color: rgba(255,30,60,0.25); background: rgba(255,255,255,0.03); box-shadow: 0 0 15px rgba(255,30,60,0.05); }
     .fg textarea { resize: vertical; min-height: 100px; }
-    .contact-info-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .contact-info-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 20px; color: #fff; }
     .ci {
       display: flex; align-items: center; gap: 14px;
       padding: 14px 16px; margin-bottom: 10px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.015);
+      border: 1px solid rgba(255,255,255,0.03);
       border-radius: 14px; transition: all 0.3s;
     }
-    .ci:hover { background: rgba(255,255,255,0.03); border-color: rgba(0,255,204,0.1); transform: translateX(4px); }
+    .ci:hover { border-color: rgba(255,30,60,0.1); transform: translateX(4px); }
     .ci-icon {
       width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
     }
     .ci-icon svg { width: 18px; height: 18px; }
-    .ci-details h4 { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 500; }
-    .ci-details p, .ci-details a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
-    .ci-details a:hover { color: #00ffcc; }
+    .ci-details h4 { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 500; }
+    .ci-details p, .ci-details a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .ci-details a:hover { color: #ff2244; }
 
     /* ===== FOOTER ===== */
     footer {
       padding: 40px 50px; text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,30,60,0.04);
     }
-    footer p { font-size: 12px; color: rgba(255,255,255,0.2); }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.15); }
     .social-row { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
     .social-row a {
       width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.04);
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2); transition: all 0.3s;
+      color: rgba(255,255,255,0.15); transition: all 0.3s;
     }
-    .social-row a:hover { border-color: #00ffcc; color: #00ffcc; transform: translateY(-2px); }
+    .social-row a:hover { border-color: #ff2244; color: #ff2244; transform: translateY(-2px); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 968px) {
@@ -465,7 +352,6 @@
       .stack-card.sc-1 { top: 10px; }
       .stack-card.sc-2 { top: 70px; }
       .stack-card.sc-3 { top: 130px; }
-      .hero-role { text-align: center; }
     }
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
@@ -474,26 +360,12 @@
       .section { padding: 60px 20px; }
       .contact-grid { grid-template-columns: 1fr; }
       .card-grid { grid-template-columns: 1fr; }
-      .cert-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-    <!-- Bokeh Background — Red palette, 30 spheres -->
-  <div class="bokeh-bg">
-    <div class="bokeh-sphere bs-01"></div><div class="bokeh-sphere bs-02"></div><div class="bokeh-sphere bs-03"></div>
-    <div class="bokeh-sphere bs-04"></div><div class="bokeh-sphere bs-05"></div><div class="bokeh-sphere bs-06"></div>
-    <div class="bokeh-sphere bs-07"></div><div class="bokeh-sphere bs-08"></div><div class="bokeh-sphere bs-09"></div>
-    <div class="bokeh-sphere bs-10"></div><div class="bokeh-sphere bs-11"></div><div class="bokeh-sphere bs-12"></div>
-    <div class="bokeh-sphere bs-13"></div><div class="bokeh-sphere bs-14"></div><div class="bokeh-sphere bs-15"></div>
-    <div class="bokeh-sphere bs-16"></div><div class="bokeh-sphere bs-17"></div><div class="bokeh-sphere bs-18"></div>
-    <div class="bokeh-sphere bs-19"></div><div class="bokeh-sphere bs-20"></div><div class="bokeh-sphere bs-21"></div>
-    <div class="bokeh-sphere bs-22"></div><div class="bokeh-sphere bs-23"></div><div class="bokeh-sphere bs-24"></div>
-    <div class="bokeh-sphere bs-25"></div><div class="bokeh-sphere bs-26"></div><div class="bokeh-sphere bs-27"></div>
-    <div class="bokeh-sphere bs-28"></div><div class="bokeh-sphere bs-29"></div><div class="bokeh-sphere bs-30"></div>
-    <div class="bokeh-glint bg-1"></div><div class="bokeh-glint bg-2"></div><div class="bokeh-glint bg-3"></div>
-    <div class="bokeh-glint bg-4"></div><div class="bokeh-glint bg-5"></div><div class="bokeh-glint bg-6"></div>
-    <div class="bokeh-glint bg-7"></div><div class="bokeh-glint bg-8"></div>
+  <!-- Bokeh Background — 10,000 spheres, 3 sizes, transparent -->
+  <div class="bokeh-bg" id="bokeh">
   </div>
   <div class="pattern-overlay"></div>
   <div class="deco-circle dc-1"></div>
@@ -525,8 +397,8 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-text">
-        <div class="hero-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00ffcc" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Available for opportunities</div>
-        <h1>Gianluca <span class="gradient">Volpe</span></h1>
+        <div class="hero-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Available for opportunities</div>
+        <h1>Gianluca <span class="accent">Volpe</span></h1>
         <div class="hero-role">DIGITAL PROJECT MANAGER</div>
         <p>Multilingual digital professional with 20+ years driving digital success across Italy & Spain — finance, travel, healthcare, and technology.</p>
         <div class="hero-contact-strip">
@@ -538,21 +410,20 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div><div class="particle p5"></div>
         <div class="stack-cards">
           <div class="stack-card sc-1">
             <div class="sc-label">Experience</div>
-            <div class="sc-value green">20+</div>
+            <div class="sc-value red">20+</div>
             <div class="sc-sub">Years in digital</div>
           </div>
           <div class="stack-card sc-2">
             <div class="sc-label">Projects</div>
-            <div class="sc-value purple">100+</div>
+            <div class="sc-value muted">100+</div>
             <div class="sc-sub">Delivered worldwide</div>
           </div>
           <div class="stack-card sc-3">
             <div class="sc-label">Languages</div>
-            <div class="sc-value blue">4</div>
+            <div class="sc-value muted">4</div>
             <div class="sc-sub">IT · ES · EN · CA</div>
           </div>
         </div>
@@ -567,29 +438,29 @@
       <h2 class="section-title">Bridging business &amp; technology<br>across cultures and industries</h2>
       <div class="card-grid">
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(0,255,204,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00ffcc" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,30,60,0.08);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h4>4 Languages</h4>
           <p>Native Italian &amp; Spanish, fluent English, working Catalan. Cross-cultural communication is my core strength.</p>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(168,85,247,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,255,255,0.03);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </div>
           <h4>4 Industries</h4>
           <p>Finance, Travel, Healthcare &amp; Technology — delivering solutions across regulated and fast-paced markets.</p>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(96,165,250,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,255,255,0.03);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
           </div>
           <h4>Client-Facing PM</h4>
           <p>Bridge between business stakeholders, creative teams and developers. Requirements engineering &amp; backlog management.</p>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(250,204,21,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10h-10V2z"/><path d="M22 12a10 10 0 0 0-10-10v10h10z"/><path d="M14 2a8 8 0 0 1 8 8h-8V2z"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,30,60,0.08);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10h-10V2z"/><path d="M22 12a10 10 0 0 0-10-10v10h10z"/></svg>
           </div>
           <h4>AI &amp; Transformation</h4>
           <p>Agentic AI, prompt engineering, Azure, AEM. Certified SAFe® 6 POPM, ITIL 4, AWS Partner.</p>
@@ -605,36 +476,36 @@
       <h2 class="section-title">Core expertise</h2>
       <div class="card-grid">
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(0,255,204,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#00ffcc" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,30,60,0.08);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <h4>Project Management</h4>
           <p>Agile/Scrum, JIRA, Basecamp, Asana, Float, Azure DevOps, Git, Salesforce</p>
-          <div class="tags"><span>Agile</span><span>Scrum</span><span>SAFe</span><span>JIRA</span><span>Git</span></div>
+          <div class="tags"><span>Agile</span><span>Scrum</span><span>SAFe</span><span>JIRA</span></div>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(168,85,247,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,255,255,0.03);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
           </div>
           <h4>Digital Marketing</h4>
           <p>SEO, SEM, PPC, Email Marketing, Google Analytics, GTM, HubSpot, Marketo</p>
-          <div class="tags"><span>SEO</span><span>Google Ads</span><span>Analytics</span><span>HubSpot</span></div>
+          <div class="tags"><span>SEO</span><span>Google Ads</span><span>Analytics</span></div>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(96,165,250,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,255,255,0.03);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h4>Web Development</h4>
           <p>HTML5, CSS, JavaScript, WordPress, Drupal, AEM, Figma, Photoshop, Cinema 4D</p>
-          <div class="tags"><span>HTML/CSS</span><span>WordPress</span><span>AEM</span><span>Figma</span></div>
+          <div class="tags"><span>HTML/CSS</span><span>WordPress</span><span>AEM</span></div>
         </div>
         <div class="gcard">
-          <div class="gcard-icon" style="background:rgba(250,204,21,0.1);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div class="gcard-icon" style="background:rgba(255,30,60,0.08);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <h4>AI &amp; Emerging Tech</h4>
-          <p>GitHub Copilot, Cursor, Perplexity AI, NotebookLM, Zapier AI, Ollama, Prompt Engineering</p>
-          <div class="tags"><span>AI</span><span>Copilot</span><span>Prompt Eng.</span><span>Agentic AI</span></div>
+          <p>GitHub Copilot, Cursor, Perplexity AI, NotebookLM, Zapier AI, Ollama, Prompt</p>
+          <div class="tags"><span>AI</span><span>Copilot</span><span>Prompt Eng.</span></div>
         </div>
       </div>
     </div>
@@ -650,31 +521,31 @@
           <div class="tl-date">May 2018 – Present</div>
           <h4>Requirements Engineer / Business Analyst</h4>
           <div class="tl-company">Netcentric (Cognizant)</div>
-          <p>Led end-to-end requirements engineering for complex digital projects. Bridge between stakeholders and dev teams across finance, healthcare, and technology. Led AEM + Azure predictive analytics projects.</p>
+          <p>Led end-to-end requirements engineering for complex digital projects. Bridge between stakeholders and dev teams across finance, healthcare, and technology.</p>
         </div>
         <div class="tl-item">
           <div class="tl-date">Jun 2016 – Jun 2017</div>
           <h4>Digital Project Manager</h4>
           <div class="tl-company">CDM Barcelona – Healthcare</div>
-          <p>Led cross-functional teams delivering healthcare marketing campaigns in highly regulated industry. Central connection between clients, creatives, and developers.</p>
+          <p>Led cross-functional teams delivering healthcare marketing campaigns in highly regulated industry.</p>
         </div>
         <div class="tl-item">
           <div class="tl-date">Nov 2015 – Jun 2016</div>
           <h4>Webmaster &amp; Operations</h4>
           <div class="tl-company">Allianz Insurance</div>
-          <p>Responsible for performance, visibility, and UX of allianz.es. Combined technical web management with data-driven SEO and cross-device optimization.</p>
+          <p>Responsible for performance, visibility, and UX of allianz.es. Combined technical web management with data-driven SEO.</p>
         </div>
         <div class="tl-item">
           <div class="tl-date">Dec 2009 – Nov 2015</div>
           <h4>Digital Senior Project Manager</h4>
           <div class="tl-company">TravelClick</div>
-          <p>Led teams of designers, developers, and SEO specialists delivering responsive websites for international hotel clients. Managed 30+ concurrent projects.</p>
+          <p>Led teams of designers, developers, and SEO specialists delivering responsive websites for international hotel clients.</p>
         </div>
         <div class="tl-item">
           <div class="tl-date">Sep 2004 – Apr 2008</div>
           <h4>Report Coordinator</h4>
           <div class="tl-company">CPM International Marketing</div>
-          <p>Managed daily reports monitoring international marketing campaign performance. Provided strategic recommendations based on data analysis.</p>
+          <p>Managed daily reports monitoring international marketing campaign performance.</p>
         </div>
       </div>
     </div>
@@ -687,21 +558,21 @@
       <h2 class="section-title">Continuous learning</h2>
       <div class="card-grid">
         <div class="gcard">
-          <h4 style="margin-bottom:14px;color:#00ffcc;font-size:13px;letter-spacing:1px;">🤖 AI &amp; Emerging Tech</h4>
-          <div class="cert-item"><div class="cert-dot" style="background:#00ffcc"></div><div><h4>AWS Partner: Agentic AI Essentials</h4><p>AWS – Oct 2025</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#a855f7"></div><div><h4>AI Product Masterclass</h4><p>Alison – Sep 2025</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#60a5fa"></div><div><h4>AI for Product Managers</h4><p>Alison – Jan 2025</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#facc15"></div><div><h4>Prompt Engineering Certification</h4><p>Quantum Leap Academy – Dec 2024</p></div></div>
+          <h4 style="margin-bottom:14px;color:#ff2244;font-size:13px;letter-spacing:1px;">🤖 AI &amp; Emerging Tech</h4>
+          <div class="cert-item"><div class="cert-dot" style="background:#ff2244"></div><div><h4>AWS Partner: Agentic AI Essentials</h4><p>AWS – Oct 2025</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:#ff2244;opacity:0.7"></div><div><h4>AI Product Masterclass</h4><p>Alison – Sep 2025</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:#ff2244;opacity:0.5"></div><div><h4>AI for Product Managers</h4><p>Alison – Jan 2025</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:#ff2244;opacity:0.3"></div><div><h4>Prompt Engineering Certification</h4><p>Quantum Leap Academy – Dec 2024</p></div></div>
         </div>
         <div class="gcard">
-          <h4 style="margin-bottom:14px;color:#a855f7;font-size:13px;letter-spacing:1px;">📋 PM, Cloud &amp; Security</h4>
-          <div class="cert-item"><div class="cert-dot" style="background:#00ffcc"></div><div><h4>SAFe® 6 Product Owner/PM</h4><p>Scaled Agile, Inc. – Feb 2024</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#a855f7"></div><div><h4>ITIL 4 Fundamentals</h4><p>IT Service Management</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#60a5fa"></div><div><h4>Microsoft Azure Fundamentals</h4><p>Microsoft – Feb 2025</p></div></div>
-          <div class="cert-item"><div class="cert-dot" style="background:#facc15"></div><div><h4>Introduction to Cybersecurity</h4><p>Cisco – Feb 2025</p></div></div>
+          <h4 style="margin-bottom:14px;color:rgba(255,255,255,0.4);font-size:13px;letter-spacing:1px;">📋 PM, Cloud &amp; Security</h4>
+          <div class="cert-item"><div class="cert-dot" style="background:rgba(255,255,255,0.2)"></div><div><h4>SAFe® 6 Product Owner/PM</h4><p>Scaled Agile, Inc. – Feb 2024</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:rgba(255,255,255,0.2)"></div><div><h4>ITIL 4 Fundamentals</h4><p>IT Service Management</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:rgba(255,255,255,0.2)"></div><div><h4>Microsoft Azure Fundamentals</h4><p>Microsoft – Feb 2025</p></div></div>
+          <div class="cert-item"><div class="cert-dot" style="background:rgba(255,255,255,0.2)"></div><div><h4>Introduction to Cybersecurity</h4><p>Cisco – Feb 2025</p></div></div>
         </div>
         <div class="gcard">
-          <h4 style="margin-bottom:16px;color:#60a5fa;font-size:13px;letter-spacing:1px;">🌐 Languages</h4>
+          <h4 style="margin-bottom:16px;color:rgba(255,255,255,0.4);font-size:13px;letter-spacing:1px;">🌐 Languages</h4>
           <div class="lang-item"><div class="lang-head"><span>Italian</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:100%"></div></div></div>
           <div class="lang-item"><div class="lang-head"><span>Spanish</span><span>Native</span></div><div class="lang-bar"><div class="fill" style="width:100%"></div></div></div>
           <div class="lang-item"><div class="lang-head"><span>English</span><span>Fluent</span></div><div class="lang-bar"><div class="fill" style="width:85%"></div></div></div>
@@ -731,23 +602,23 @@
         <div class="contact-info-box">
           <h3>Let's connect</h3>
           <div class="ci">
-            <div class="ci-icon" style="background:rgba(0,255,204,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#00ffcc" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="ci-icon" style="background:rgba(255,30,60,0.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div class="ci-details"><h4>Phone</h4><p>(+39) 379-153-1031</p></div>
           </div>
           <div class="ci">
-            <div class="ci-icon" style="background:rgba(168,85,247,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="ci-icon" style="background:rgba(255,255,255,0.03)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div class="ci-details"><h4>Email</h4><a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a></div>
           </div>
           <div class="ci">
-            <div class="ci-icon" style="background:rgba(96,165,250,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="ci-icon" style="background:rgba(255,255,255,0.03)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div class="ci-details"><h4>Location</h4><p>Moruzzo (UD), Italy</p></div>
           </div>
           <div class="ci">
-            <div class="ci-icon" style="background:rgba(250,204,21,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="ci-icon" style="background:rgba(255,30,60,0.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#ff2244" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
             <div class="ci-details"><h4>LinkedIn</h4><a href="https://linkedin.com/in/gianlucavolpe" target="_blank">linkedin.com/in/gianlucavolpe</a></div>
           </div>
           <div class="ci">
-            <div class="ci-icon" style="background:rgba(0,255,204,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="#00ffcc" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+            <div class="ci-icon" style="background:rgba(255,255,255,0.03)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
             <div class="ci-details"><h4>GitHub</h4><a href="https://github.com/skylhub" target="_blank">github.com/skylhub</a></div>
           </div>
         </div>
@@ -765,6 +636,23 @@
   </footer>
 
   <script>
+    // Generate 10,000 bokeh spheres
+    (function(){
+      const container = document.getElementById('bokeh');
+      const sizes = ['s','s','s','s','s','s','s','m','m','l']; // 70% small, 20% med, 10% large
+      const frag = document.createDocumentFragment();
+      for(let i=0; i<10000; i++){
+        const el = document.createElement('i');
+        el.className = sizes[i % sizes.length];
+        el.style.left = (Math.random() * 100) + '%';
+        el.style.top = (Math.random() * 100) + '%';
+        el.style.animationDelay = (Math.random() * -60) + 's';
+        el.style.animationDuration = (40 + Math.random() * 40) + 's';
+        frag.appendChild(el);
+      }
+      container.appendChild(frag);
+    })();
+
     document.getElementById('hamburger').addEventListener('click', function() {
       this.classList.toggle('active');
       document.getElementById('navLinksMobile').classList.toggle('active');
