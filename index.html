@@ -294,14 +294,13 @@
       box-shadow: 0 8px 32px rgba(255,34,68,0.1);
     }
     .stat-card-hero .num {
-      font-size: 2.8rem; font-weight: 700; color: var(--white);
+      font-size: 3.2rem; font-weight: 700; color: var(--white);
       font-family: var(--font-mono);
       transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
-      display: flex; align-items: baseline; gap: 0.2rem;
     }
     .stat-card-hero:hover .num {
       color: var(--accent);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     .stat-card-hero .label {
       font-family: var(--font-mono); font-size: 0.8rem;
@@ -313,27 +312,18 @@
       color: var(--white);
       letter-spacing: 0.16em;
     }
-    .stat-card-hero .num-prefix {
-      font-size: 1.6rem; color: var(--accent);
-      transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
-    }
-    .stat-card-hero:hover .num-prefix {
-      transform: scale(1.15);
-    }
-    .stat-card-hero .num-suffix {
-      font-size: 1.2rem; color: rgba(255,255,255,0.4);
-    }
     .stat-card-hero .claim {
       font-family: var(--font-mono); font-size: 0.7rem;
       color: rgba(255,34,68,0.05); text-transform: uppercase;
-      letter-spacing: 0.12em; margin-top: 0.5rem;
+      letter-spacing: 0.15em; margin-top: 0.5rem;
       transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
       border-top: 1px solid rgba(255,255,255,0.04);
       padding-top: 0.5rem;
     }
     .stat-card-hero:hover .claim {
-      color: rgba(255,34,68,0.8);
-      letter-spacing: 0.2em;
+      color: rgba(255,34,68,0.85);
+      letter-spacing: 0.25em;
+      font-weight: 600;
     }
     .stat-card-hero .cta-arrow {
       display: inline-block;
@@ -341,7 +331,7 @@
       opacity: 0;
     }
     .stat-card-hero:hover .cta-arrow {
-      transform: translateX(6px);
+      transform: translateX(8px);
       opacity: 1;
     }
 
@@ -556,14 +546,10 @@
         </div>
       </div>
       <div class="hero-stats">
-        <div class="stat-card-hero reveal visible"><div class="num"><span class="num-prefix">🚴</span><span data-target="20">0</span><span class="num-suffix">+</span></div><div class="label">Years Experience</div></div>
-        <div class="stat-card-hero reveal visible reveal-delay-1"><div class="num"><span class="num-prefix">△</span><span data-target="100">0</span><span class="num-suffix">+</span></div><div class="label">Projects Delivered</div></div>
-        <div class="stat-card-hero reveal visible reveal-delay-2"><div class="num"><span class="num-prefix">🌐</span><span data-target="4">0</span></div><div class="label">Languages</div></div>
-        <div class="stat-card-hero reveal visible reveal-delay-3" id="cycling-stat">
-          <div class="num"><span class="num-prefix">🚴</span><span data-target="8754">0</span><span class="num-suffix">km</span></div>
-          <div class="label">Cycling This Year</div>
-          <div class="claim">4 mountain passes <span class="cta-arrow">→</span></div>
-        </div>
+        <div class="stat-card-hero reveal visible"><div class="num"><span data-target="8754">0</span></div><div class="label">Cycling This Year</div><div class="claim">4 mountain passes conquered <span class="cta-arrow">→</span></div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-1"><div class="num"><span data-target="20">0</span></div><div class="label">Years Experience</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-2"><div class="num"><span data-target="100">0</span></div><div class="label">Projects Delivered</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-3"><div class="num"><span data-target="4">0</span></div><div class="label">Languages</div></div>
       </div>
     </div>
   </section>
@@ -801,21 +787,20 @@
     document.querySelectorAll('.line-mask').forEach(el => observer.observe(el));
 
     // Animated counters on hover
-    function animateCounter(el, target, suffix = '') {
+    function animateCounter(el, target) {
       let current = 0;
-      const steps = 40;
+      const steps = 50;
       const increment = target / steps;
-      const duration = 800;
-      const stepTime = duration / steps;
+      const stepTime = 600 / steps;
       el.textContent = '0';
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-          el.textContent = target.toLocaleString() + suffix;
+          el.textContent = target.toLocaleString('de-DE'); // dot as thousands sep
           clearInterval(timer);
           return;
         }
-        el.textContent = Math.round(current).toLocaleString() + suffix;
+        el.textContent = Math.round(current).toLocaleString('de-DE');
       }, stepTime);
       return () => clearInterval(timer);
     }
@@ -823,7 +808,12 @@
     document.querySelectorAll('.stat-card-hero').forEach(card => {
       const numEl = card.querySelector('.num [data-target]');
       if (!numEl) return;
-      const target = parseInt(numEl.getAttribute('data-target'));
+      let target = parseInt(numEl.getAttribute('data-target'));
+      // Keep cycling at 8754, randomize others up to 4 digits
+      if (!card.querySelector('.label') || !card.querySelector('.label').textContent.includes('Cycling')) {
+        target = Math.floor(Math.random() * 9000) + 1000; // 1000-9999
+        numEl.setAttribute('data-target', target);
+      }
       let cancelCurrent = null;
       card.addEventListener('mouseenter', () => {
         if (cancelCurrent) cancelCurrent();
