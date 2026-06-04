@@ -442,27 +442,40 @@
     .social-row a { color: rgba(255,255,255,0.2); transition: color 0.3s; }
     .social-row a:hover { color: var(--white); }
 
-    /* SVG isometric logo — ykadosh-style 3D */
-    .logo-iso {
-      width: 160px;
-      height: auto;
-      overflow: visible;
-      cursor: default;
+    /* Logo nav */
+    .logo-nav {
+      display: flex; align-items: center;
+      font-family: var(--font-mono);
+      text-decoration: none;
+      gap: 0.6rem;
     }
-    .logo-iso .iso-layer {
-      transform: translateX(var(--tx)) translateY(var(--ty));
-      transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
-      animation: isoFloat 3s ease-in-out infinite;
+    .logo-nav .logo-mark {
+      width: 2rem; height: 2rem;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #000;
+      letter-spacing: -0.02em;
+      transition: transform 0.3s;
     }
-    .logo-iso:hover .iso-layer {
-      transform: translateX(calc(var(--tx) + 3px)) translateY(calc(var(--ty) - 5px));
+    .logo-nav:hover .logo-mark {
+      transform: rotate(-8deg);
     }
-    @keyframes isoFloat {
-      0%, 100% { transform: translateX(var(--tx)) translateY(var(--ty)); }
-      50% { transform: translateX(var(--tx)) translateY(calc(var(--ty) - 3px)); }
+    .logo-nav .logo-text {
+      display: flex; flex-direction: column;
+      line-height: 1.15;
+    }
+    .logo-nav .logo-text strong {
+      font-size: 0.95rem; font-weight: 600; color: var(--white);
+      letter-spacing: 0.03em;
+    }
+    .logo-nav .logo-text span {
+      font-size: 0.55rem; color: rgba(255,255,255,0.3);
+      text-transform: uppercase; letter-spacing: 0.12em;
     }
     @media (max-width: 768px) {
-      .logo-iso { width: 120px; }
+      .logo-nav .logo-text strong { font-size: 0.85rem; }
+      .logo-nav .logo-text span { font-size: 0.5rem; }
+      .logo-nav .logo-mark { width: 1.6rem; height: 1.6rem; font-size: 0.6rem; }
     }
 
     /* Responsive */
@@ -544,55 +557,13 @@
 
   <!-- Nav -->
   <nav>
-    <svg class="logo-iso" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#fff" />
-          <stop offset="100%" stop-color="#ccc" />
-        </linearGradient>
-        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#ff2244" />
-          <stop offset="100%" stop-color="#ff4466" />
-        </linearGradient>
-        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="rgba(255,255,255,0.4)" />
-          <stop offset="100%" stop-color="rgba(255,255,255,0.2)" />
-        </linearGradient>
-        <filter id="glow1" x="-10" y="-10" width="120" height="120">
-          <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(255,255,255,0.3)" flood-opacity="0.3"/>
-        </filter>
-        <filter id="glow2" x="-10" y="-10" width="120" height="120">
-          <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(255,34,68,0.3)" flood-opacity="0.3"/>
-        </filter>
-      </defs>
-      <!-- Gianluca layer -->
-      <g class="iso-layer" style="--tx:0px;--ty:0px;animation-delay:0s">
-        <path d="M0,22 L45,0 L90,22 L45,44 Z" fill="url(#g1)" filter="url(#glow1)"/>
-        <path d="M0,22 L45,44 L45,48 L0,26 Z" fill="rgba(0,0,0,0.2)"/>
-        <path d="M45,44 L90,22 L90,26 L45,48 Z" fill="rgba(255,255,255,0.15)"/>
-        <text x="45" y="26" dominant-baseline="middle" text-anchor="middle"
-          font-family="Montserrat,Inter,sans-serif" font-weight="700" font-size="9"
-          fill="rgba(0,0,0,0.85)" transform="skewY(-2)">Gianluca</text>
-      </g>
-      <!-- Volpe layer -->
-      <g class="iso-layer" style="--tx:5px;--ty:8px;animation-delay:0.15s">
-        <path d="M0,22 L40,0 L80,22 L40,44 Z" fill="url(#g2)" filter="url(#glow2)"/>
-        <path d="M0,22 L40,44 L40,48 L0,26 Z" fill="rgba(0,0,0,0.2)"/>
-        <path d="M40,44 L80,22 L80,26 L40,48 Z" fill="rgba(255,255,255,0.15)"/>
-        <text x="40" y="26" dominant-baseline="middle" text-anchor="middle"
-          font-family="Montserrat,Inter,sans-serif" font-weight="700" font-size="8"
-          fill="rgba(0,0,0,0.85)" transform="skewY(-2)">Volpe</text>
-      </g>
-      <!-- digital project manager layer -->
-      <g class="iso-layer" style="--tx:10px;--ty:16px;animation-delay:0.3s">
-        <path d="M0,22 L35,0 L70,22 L35,44 Z" fill="url(#g3)" filter="url(#glow1)"/>
-        <path d="M0,22 L35,44 L35,48 L0,26 Z" fill="rgba(0,0,0,0.15)"/>
-        <path d="M35,44 L70,22 L70,26 L35,48 Z" fill="rgba(255,255,255,0.1)"/>
-        <text x="35" y="26" dominant-baseline="middle" text-anchor="middle"
-          font-family="Montserrat,Inter,sans-serif" font-weight="600" font-size="5.5"
-          fill="rgba(0,0,0,0.7)" transform="skewY(-2)">digital project manager</text>
-      </g>
-    </svg>
+    <a href="#home" class="logo-nav">
+      <span class="logo-mark">GV</span>
+      <span class="logo-text">
+        <strong>Gianluca Volpe</strong>
+        <span>digital project manager</span>
+      </span>
+    </a>
     <ul class="nav-links">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
