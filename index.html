@@ -546,9 +546,9 @@
         </div>
       </div>
       <div class="hero-stats">
-        <div class="stat-card-hero reveal visible"><div class="num"><span data-target="8754">0</span></div><div class="label">Cycling This Year</div><div class="claim">4 mountain passes conquered <span class="cta-arrow">→</span></div></div>
-        <div class="stat-card-hero reveal visible reveal-delay-1"><div class="num"><span data-target="20">0</span></div><div class="label">Years Experience</div></div>
-        <div class="stat-card-hero reveal visible reveal-delay-2"><div class="num"><span data-target="100">0</span></div><div class="label">Projects Delivered</div></div>
+        <div class="stat-card-hero reveal visible"><div class="num"><span data-target="8754" data-suffix="km">0</span></div><div class="label">Cycling This Year</div><div class="claim">4 mountain passes conquered <span class="cta-arrow">→</span></div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-1"><div class="num"><span data-target="20" data-suffix="+">0</span></div><div class="label">Years Experience</div></div>
+        <div class="stat-card-hero reveal visible reveal-delay-2"><div class="num"><span data-target="100" data-suffix="+">0</span></div><div class="label">Projects Delivered</div></div>
         <div class="stat-card-hero reveal visible reveal-delay-3"><div class="num"><span data-target="4">0</span></div><div class="label">Languages</div></div>
       </div>
     </div>
@@ -787,20 +787,22 @@
     document.querySelectorAll('.line-mask').forEach(el => observer.observe(el));
 
     // Animated counters on hover
-    function animateCounter(el, target) {
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-target'));
+      const suffix = el.getAttribute('data-suffix') || '';
       let current = 0;
-      const steps = 50;
+      const steps = Math.min(target, 50);
       const increment = target / steps;
-      const stepTime = 600 / steps;
+      const stepTime = 500 / steps;
       el.textContent = '0';
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-          el.textContent = target.toLocaleString('de-DE'); // dot as thousands sep
+          el.textContent = target.toLocaleString('de-DE') + suffix;
           clearInterval(timer);
           return;
         }
-        el.textContent = Math.round(current).toLocaleString('de-DE');
+        el.textContent = Math.round(current).toLocaleString('de-DE') + suffix;
       }, stepTime);
       return () => clearInterval(timer);
     }
@@ -808,16 +810,12 @@
     document.querySelectorAll('.stat-card-hero').forEach(card => {
       const numEl = card.querySelector('.num [data-target]');
       if (!numEl) return;
-      let target = parseInt(numEl.getAttribute('data-target'));
-      // Keep cycling at 8754, randomize others up to 4 digits
-      if (!card.querySelector('.label') || !card.querySelector('.label').textContent.includes('Cycling')) {
-        target = Math.floor(Math.random() * 9000) + 1000; // 1000-9999
-        numEl.setAttribute('data-target', target);
-      }
       let cancelCurrent = null;
       card.addEventListener('mouseenter', () => {
         if (cancelCurrent) cancelCurrent();
-        cancelCurrent = animateCounter(numEl, target);
+        // Always reset to 0 then animate
+        numEl.textContent = '0';
+        cancelCurrent = animateCounter(numEl);
       });
     });
   </script>
