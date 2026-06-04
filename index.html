@@ -82,7 +82,22 @@
     .hero-bg {
       position: absolute; inset: 0;
       overflow: hidden;
-      background: radial-gradient(ellipse at 50% 30%, #0a0e1a 0%, #060810 50%, #000 100%);
+      background: radial-gradient(ellipse at 50% 30%, #080c18 0%, #040610 40%, #000 100%);
+    }
+    /* Video overlay on top of bokeh for extra depth */
+    .hero-bg video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      z-index: 1;
+    }
+    .hero-bg .bokeh-overlay {
+      position: absolute; inset: 0;
+      z-index: 2;
+    }
+    .hero-content-layer {
+      position: relative; z-index: 10;
     }
     /* Bokeh spheres — 3 depths: far (small, slow), mid (medium), near (large, fast) */
     .bokeh {
@@ -142,30 +157,30 @@
       filter: blur(44px); animation: bkMid 37s ease-in-out infinite -32s; }
 
     /* NEAR LAYER — large, bright, fast flicker */
-    .bk-n1 { width: 500px; height: 500px; top: -150px; left: -100px;
-      background: radial-gradient(circle at 40% 60%, rgba(50,140,255,0.35) 0%, transparent 70%);
-      filter: blur(80px); animation: bkNear 25s ease-in-out infinite; }
-    .bk-n2 { width: 400px; height: 400px; top: 30%; left: 25%;
-      background: radial-gradient(circle at 50% 30%, rgba(100,180,255,0.30) 0%, transparent 70%);
-      filter: blur(70px); animation: bkNear 28s ease-in-out infinite -6s; }
-    .bk-n3 { width: 450px; height: 450px; bottom: -120px; left: 40%;
-      background: radial-gradient(circle at 60% 40%, rgba(255,200,80,0.18) 0%, transparent 70%);
-      filter: blur(75px); animation: bkNear 30s ease-in-out infinite -12s; }
-    .bk-n4 { width: 350px; height: 350px; top: 10%; right: -80px;
-      background: radial-gradient(circle at 30% 50%, rgba(255,160,60,0.20) 0%, transparent 70%);
-      filter: blur(65px); animation: bkNear 26s ease-in-out infinite -18s; }
-    .bk-n5 { width: 380px; height: 380px; bottom: 20%; right: 5%;
-      background: radial-gradient(circle at 50% 50%, rgba(30,120,255,0.15) 0%, transparent 70%);
-      filter: blur(68px); animation: bkNear 32s ease-in-out infinite -24s; }
-    .bk-n6 { width: 320px; height: 320px; top: 60%; left: 15%;
-      background: radial-gradient(circle at 50% 50%, rgba(220,180,70,0.14) 0%, transparent 70%);
-      filter: blur(62px); animation: bkNear 27s ease-in-out infinite -10s; }
-    .bk-n7 { width: 480px; height: 480px; top: -80px; left: 40%;
-      background: radial-gradient(circle at 50% 50%, rgba(60,150,255,0.18) 0%, transparent 70%);
-      filter: blur(78px); animation: bkNear 29s ease-in-out infinite -14s; }
-    .bk-n8 { width: 300px; height: 300px; bottom: -60px; left: 10%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,180,70,0.16) 0%, transparent 70%);
-      filter: blur(60px); animation: bkNear 31s ease-in-out infinite -22s; }
+    .bk-n1 { width: 600px; height: 600px; top: -200px; left: -150px;
+      background: radial-gradient(circle at 40% 60%, rgba(50,140,255,0.40) 0%, rgba(30,100,220,0.15) 40%, transparent 70%);
+      filter: blur(85px); animation: bkNear 22s ease-in-out infinite; }
+    .bk-n2 { width: 500px; height: 500px; top: 25%; left: 20%;
+      background: radial-gradient(circle at 50% 30%, rgba(100,180,255,0.35) 0%, rgba(60,140,240,0.12) 40%, transparent 70%);
+      filter: blur(75px); animation: bkNear 26s ease-in-out infinite -5s; }
+    .bk-n3 { width: 550px; height: 550px; bottom: -150px; left: 35%;
+      background: radial-gradient(circle at 60% 40%, rgba(255,200,80,0.30) 0%, rgba(220,170,60,0.10) 40%, transparent 70%);
+      filter: blur(80px); animation: bkNear 28s ease-in-out infinite -10s; }
+    .bk-n4 { width: 450px; height: 450px; top: 5%; right: -100px;
+      background: radial-gradient(circle at 30% 50%, rgba(255,160,60,0.35) 0%, rgba(200,130,50,0.12) 40%, transparent 70%);
+      filter: blur(70px); animation: bkNear 24s ease-in-out infinite -15s; }
+    .bk-n5 { width: 480px; height: 480px; bottom: 15%; right: 0%;
+      background: radial-gradient(circle at 50% 50%, rgba(30,120,255,0.28) 0%, rgba(20,80,200,0.10) 40%, transparent 70%);
+      filter: blur(72px); animation: bkNear 30s ease-in-out infinite -20s; }
+    .bk-n6 { width: 400px; height: 400px; top: 55%; left: 10%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,180,70,0.25) 0%, rgba(180,140,50,0.08) 40%, transparent 70%);
+      filter: blur(65px); animation: bkNear 25s ease-in-out infinite -8s; }
+    .bk-n7 { width: 520px; height: 520px; top: -100px; left: 35%;
+      background: radial-gradient(circle at 50% 50%, rgba(60,150,255,0.32) 0%, rgba(30,100,220,0.10) 40%, transparent 70%);
+      filter: blur(78px); animation: bkNear 27s ease-in-out infinite -12s; }
+    .bk-n8 { width: 380px; height: 380px; bottom: -80px; left: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,180,70,0.28) 0%, rgba(200,140,50,0.10) 40%, transparent 70%);
+      filter: blur(62px); animation: bkNear 29s ease-in-out infinite -18s; }
 
     /* Glints — tiny defocused highlights */
     .bk-glint {
@@ -443,6 +458,12 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-bg">
+    <!-- Video -->
+    <video autoplay muted loop playsinline>
+      <source src="hero-bg.mp4" type="video/mp4">
+    </video>
+    <!-- Bokeh overlay on top -->
+    <div class="bokeh-overlay">
     <!-- Far layer -->
     <div class="bokeh bk-f1"></div><div class="bokeh bk-f2"></div><div class="bokeh bk-f3"></div><div class="bokeh bk-f4"></div>
     <div class="bokeh bk-f5"></div><div class="bokeh bk-f6"></div><div class="bokeh bk-f7"></div><div class="bokeh bk-f8"></div>
@@ -455,6 +476,7 @@
     <!-- Glints -->
     <div class="bk-glint bk-g1"></div><div class="bk-glint bk-g2"></div><div class="bk-glint bk-g3"></div>
     <div class="bk-glint bk-g4"></div><div class="bk-glint bk-g5"></div><div class="bk-glint bk-g6"></div>
+    </div>
   </div>
     <div class="hero-grid">
       <div class="hero-text">
