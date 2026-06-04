@@ -15,11 +15,11 @@
       overflow-x: hidden;
     }
 
-    /* ===== BOKEH BACKGROUND (Vecteezy-style — large spheres) ===== */
+    /* ===== BOKEH BACKGROUND — Red palette, dark tone ===== */
     .bokeh-bg {
       position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
       z-index: -1; overflow: hidden;
-      background: radial-gradient(ellipse at 50% 40%, #0b1a35 0%, #070c24 40%, #040712 100%);
+      background: radial-gradient(ellipse at 50% 30%, #1a0808 0%, #0d0404 40%, #050202 100%);
     }
     .bokeh-sphere {
       position: absolute; border-radius: 50%;
@@ -27,114 +27,127 @@
       will-change: transform, opacity;
       mix-blend-mode: screen;
     }
-    /* Warm blue spheres — large */
-    .bs-1 {
-      width: 900px; height: 900px;
-      top: -250px; left: -150px;
-      background: radial-gradient(circle at 40% 60%, rgba(30,144,255,0.35) 0%, rgba(30,144,255,0.1) 50%, transparent 80%);
-      animation: bokehFloat 35s ease-in-out infinite;
-    }
-    .bs-2 {
-      width: 750px; height: 750px;
-      top: 10%; left: 25%;
-      background: radial-gradient(circle at 60% 40%, rgba(70,130,220,0.28) 0%, rgba(70,130,220,0.08) 50%, transparent 80%);
-      animation: bokehFloat 40s ease-in-out infinite -8s;
-    }
-    .bs-3 {
-      width: 600px; height: 600px;
-      bottom: 5%; left: -100px;
-      background: radial-gradient(circle at 30% 70%, rgba(100,149,237,0.22) 0%, rgba(100,149,237,0.06) 50%, transparent 80%);
-      animation: bokehFloat 38s ease-in-out infinite -16s;
-    }
-    .bs-4 {
-      width: 850px; height: 850px;
-      bottom: -200px; left: 30%;
-      background: radial-gradient(circle at 50% 50%, rgba(65,105,225,0.3) 0%, rgba(65,105,225,0.08) 50%, transparent 80%);
-      animation: bokehFloat 42s ease-in-out infinite -5s;
-    }
-    .bs-5 {
-      width: 500px; height: 500px;
-      top: 45%; left: 60%;
-      background: radial-gradient(circle at 50% 50%, rgba(0,100,255,0.2) 0%, rgba(0,100,255,0.05) 50%, transparent 80%);
-      animation: bokehFloat 30s ease-in-out infinite -12s;
-    }
-    /* Amber/warm spheres — large */
-    .bs-6 {
-      width: 650px; height: 650px;
-      top: -150px; right: -100px;
-      background: radial-gradient(circle at 40% 30%, rgba(255,191,0,0.2) 0%, rgba(255,191,0,0.06) 50%, transparent 80%);
-      animation: bokehFloat 36s ease-in-out infinite -10s;
-    }
-    .bs-7 {
-      width: 550px; height: 550px;
-      top: 25%; right: -50px;
-      background: radial-gradient(circle at 60% 50%, rgba(255,165,0,0.18) 0%, rgba(255,165,0,0.05) 50%, transparent 80%);
-      animation: bokehFloat 33s ease-in-out infinite -18s;
-    }
-    .bs-8 {
-      width: 700px; height: 700px;
-      bottom: -100px; right: 10%;
-      background: radial-gradient(circle at 30% 60%, rgba(255,140,0,0.15) 0%, rgba(255,140,0,0.04) 50%, transparent 80%);
-      animation: bokehFloat 39s ease-in-out infinite -22s;
-    }
-    .bs-9 {
-      width: 400px; height: 400px;
-      top: 60%; left: 10%;
-      background: radial-gradient(circle at 50% 50%, rgba(255,215,0,0.12) 0%, rgba(255,215,0,0.03) 50%, transparent 80%);
-      animation: bokehFloat 28s ease-in-out infinite -14s;
-    }
-    .bs-10 {
-      width: 480px; height: 480px;
-      top: 5%; left: 50%;
-      background: radial-gradient(circle at 50% 50%, rgba(200,220,255,0.08) 0%, transparent 70%);
-      animation: bokehFloat 32s ease-in-out infinite -25s;
-    }
+    /* Red / crimson / burgundy palette — 30 spheres, 50% opacity, varied sizes */
+    .bs-01 { width: 900px; height: 900px; top: -300px; left: -200px;
+      background: radial-gradient(circle at 40% 60%, rgba(255,30,60,0.25) 0%, rgba(200,0,30,0.10) 50%, transparent 80%);
+      animation: bokehFloat 38s ease-in-out infinite; }
+    .bs-02 { width: 650px; height: 650px; top: 5%; left: 15%;
+      background: radial-gradient(circle at 60% 40%, rgba(180,0,50,0.22) 0%, rgba(140,0,30,0.08) 50%, transparent 80%);
+      animation: bokehFloat 42s ease-in-out infinite -4s; }
+    .bs-03 { width: 400px; height: 400px; top: 12%; left: 45%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,50,80,0.18) 0%, rgba(220,20,40,0.06) 50%, transparent 80%);
+      animation: bokehFloat 35s ease-in-out infinite -8s; }
+    .bs-04 { width: 550px; height: 550px; top: 20%; left: 5%;
+      background: radial-gradient(circle at 30% 70%, rgba(120,0,30,0.20) 0%, transparent 60%);
+      animation: bokehFloat 40s ease-in-out infinite -12s; }
+    .bs-05 { width: 780px; height: 780px; top: 30%; left: 40%;
+      background: radial-gradient(circle at 50% 30%, rgba(220,10,40,0.20) 0%, rgba(160,0,20,0.07) 50%, transparent 80%);
+      animation: bokehFloat 45s ease-in-out infinite -2s; }
+    .bs-06 { width: 350px; height: 350px; top: 40%; left: 20%;
+      background: radial-gradient(circle at 50% 50%, rgba(200,40,70,0.15) 0%, transparent 60%);
+      animation: bokehFloat 30s ease-in-out infinite -16s; }
+    .bs-07 { width: 720px; height: 720px; top: 50%; left: 60%;
+      background: radial-gradient(circle at 60% 40%, rgba(180,0,40,0.18) 0%, rgba(100,0,20,0.06) 50%, transparent 80%);
+      animation: bokehFloat 36s ease-in-out infinite -20s; }
+    .bs-08 { width: 500px; height: 500px; top: 60%; left: 0%;
+      background: radial-gradient(circle at 40% 60%, rgba(255,60,90,0.15) 0%, transparent 60%);
+      animation: bokehFloat 33s ease-in-out infinite -24s; }
+    .bs-09 { width: 850px; height: 850px; top: 70%; left: 25%;
+      background: radial-gradient(circle at 50% 50%, rgba(140,0,40,0.18) 0%, rgba(80,0,20,0.06) 50%, transparent 80%);
+      animation: bokehFloat 44s ease-in-out infinite -6s; }
+    .bs-10 { width: 300px; height: 300px; top: 80%; left: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,30,60,0.12) 0%, transparent 60%);
+      animation: bokehFloat 28s ease-in-out infinite -10s; }
+    .bs-11 { width: 680px; height: 680px; top: -100px; right: -150px;
+      background: radial-gradient(circle at 40% 60%, rgba(200,20,50,0.22) 0%, rgba(150,0,30,0.08) 50%, transparent 80%);
+      animation: bokehFloat 39s ease-in-out infinite -14s; }
+    .bs-12 { width: 450px; height: 450px; top: 15%; right: 10%;
+      background: radial-gradient(circle at 60% 50%, rgba(255,40,70,0.18) 0%, rgba(200,10,40,0.06) 50%, transparent 80%);
+      animation: bokehFloat 34s ease-in-out infinite -18s; }
+    .bs-13 { width: 600px; height: 600px; top: 35%; right: 30%;
+      background: radial-gradient(circle at 30% 30%, rgba(160,0,50,0.16) 0%, transparent 60%);
+      animation: bokehFloat 41s ease-in-out infinite -22s; }
+    .bs-14 { width: 380px; height: 380px; top: 55%; right: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,50,80,0.14) 0%, transparent 60%);
+      animation: bokehFloat 31s ease-in-out infinite -26s; }
+    .bs-15 { width: 530px; height: 530px; top: 65%; right: 20%;
+      background: radial-gradient(circle at 60% 40%, rgba(180,10,40,0.18) 0%, rgba(100,0,20,0.06) 50%, transparent 80%);
+      animation: bokehFloat 37s ease-in-out infinite -30s; }
+    .bs-16 { width: 920px; height: 920px; bottom: -300px; right: -200px;
+      background: radial-gradient(circle at 50% 40%, rgba(130,0,40,0.20) 0%, rgba(80,0,20,0.07) 50%, transparent 80%);
+      animation: bokehFloat 43s ease-in-out infinite -3s; }
+    .bs-17 { width: 480px; height: 480px; top: 45%; left: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(200,60,90,0.12) 0%, transparent 60%);
+      animation: bokehFloat 29s ease-in-out infinite -7s; }
+    .bs-18 { width: 320px; height: 320px; top: 10%; left: 70%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,70,100,0.10) 0%, transparent 60%);
+      animation: bokehFloat 26s ease-in-out infinite -11s; }
+    .bs-19 { width: 750px; height: 750px; top: 75%; left: 10%;
+      background: radial-gradient(circle at 40% 60%, rgba(150,0,30,0.16) 0%, transparent 60%);
+      animation: bokehFloat 46s ease-in-out infinite -15s; }
+    .bs-20 { width: 260px; height: 260px; bottom: 15%; right: 40%;
+      background: radial-gradient(circle at 50% 50%, rgba(220,20,50,0.10) 0%, transparent 60%);
+      animation: bokehFloat 27s ease-in-out infinite -19s; }
+    /* Extra small accent spheres */
+    .bs-21 { width: 200px; height: 200px; top: 28%; left: 35%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,80,110,0.08) 0%, transparent 60%);
+      animation: bokehFloat 22s ease-in-out infinite -23s; }
+    .bs-22 { width: 150px; height: 150px; top: 72%; left: 55%;
+      background: radial-gradient(circle at 50% 50%, rgba(200,30,60,0.07) 0%, transparent 60%);
+      animation: bokehFloat 20s ease-in-out infinite -27s; }
+    .bs-23 { width: 180px; height: 180px; top: 8%; right: 45%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,50,80,0.06) 0%, transparent 60%);
+      animation: bokehFloat 24s ease-in-out infinite -31s; }
+    .bs-24 { width: 240px; height: 240px; bottom: 5%; left: 45%;
+      background: radial-gradient(circle at 50% 50%, rgba(180,10,40,0.08) 0%, transparent 60%);
+      animation: bokehFloat 23s ease-in-out infinite -35s; }
+    /* Deep burgundy undertones */
+    .bs-25 { width: 500px; height: 500px; top: 22%; left: 22%;
+      background: radial-gradient(circle at 50% 50%, rgba(80,0,20,0.12) 0%, transparent 60%);
+      animation: bokehFloat 47s ease-in-out infinite -1s; }
+    .bs-26 { width: 350px; height: 350px; bottom: 25%; left: 15%;
+      background: radial-gradient(circle at 50% 50%, rgba(60,0,15,0.10) 0%, transparent 60%);
+      animation: bokehFloat 48s ease-in-out infinite -5s; }
+    .bs-27 { width: 420px; height: 420px; top: 5%; left: 80%;
+      background: radial-gradient(circle at 50% 50%, rgba(90,0,25,0.10) 0%, transparent 60%);
+      animation: bokehFloat 49s ease-in-out infinite -9s; }
+    .bs-28 { width: 280px; height: 280px; bottom: 10%; left: 75%;
+      background: radial-gradient(circle at 50% 50%, rgba(70,0,20,0.08) 0%, transparent 60%);
+      animation: bokehFloat 44s ease-in-out infinite -13s; }
+    .bs-29 { width: 180px; height: 180px; top: 50%; left: 5%;
+      background: radial-gradient(circle at 50% 50%, rgba(100,0,30,0.10) 0%, transparent 60%);
+      animation: bokehFloat 35s ease-in-out infinite -17s; }
+    .bs-30 { width: 220px; height: 220px; bottom: 30%; left: 40%;
+      background: radial-gradient(circle at 50% 50%, rgba(50,0,10,0.08) 0%, transparent 60%);
+      animation: bokehFloat 50s ease-in-out infinite -21s; }
     /* Tiny glints */
     .bokeh-glint {
       position: absolute; border-radius: 50%;
       filter: blur(15px);
       animation: glintPulse 5s ease-in-out infinite;
     }
-    .bg-1 { width: 50px; height: 50px; top: 15%; left: 20%; background: rgba(255,255,255,0.03); animation-delay: 0s; }
-    .bg-2 { width: 40px; height: 40px; top: 55%; left: 45%; background: rgba(255,255,255,0.025); animation-delay: -1.5s; }
-    .bg-3 { width: 60px; height: 60px; top: 30%; right: 25%; background: rgba(255,255,255,0.025); animation-delay: -3s; }
-    .bg-4 { width: 35px; height: 35px; bottom: 35%; right: 35%; background: rgba(255,255,255,0.02); animation-delay: -4s; }
-    .bg-5 { width: 45px; height: 45px; bottom: 20%; left: 35%; background: rgba(255,255,255,0.02); animation-delay: -2s; }
+    .bg-1 { width: 50px; height: 50px; top: 15%; left: 20%; background: rgba(255,50,50,0.03); animation-delay: 0s; }
+    .bg-2 { width: 40px; height: 40px; top: 55%; left: 45%; background: rgba(255,30,50,0.025); animation-delay: -1.5s; }
+    .bg-3 { width: 60px; height: 60px; top: 30%; right: 25%; background: rgba(255,40,60,0.025); animation-delay: -3s; }
+    .bg-4 { width: 35px; height: 35px; bottom: 35%; right: 35%; background: rgba(200,20,40,0.02); animation-delay: -4s; }
+    .bg-5 { width: 45px; height: 45px; bottom: 20%; left: 35%; background: rgba(255,60,80,0.02); animation-delay: -2s; }
+    .bg-6 { width: 30px; height: 30px; top: 40%; left: 70%; background: rgba(220,30,50,0.02); animation-delay: -1s; }
+    .bg-7 { width: 55px; height: 55px; bottom: 40%; right: 15%; background: rgba(180,10,30,0.02); animation-delay: -3.5s; }
+    .bg-8 { width: 25px; height: 25px; top: 70%; left: 30%; background: rgba(255,70,90,0.015); animation-delay: -0.5s; }
 
     @keyframes bokehFloat {
-      0%,100% {
-        transform: translate(0px, 0px) scale(1);
-        opacity: 0.5;
-      }
-      15% {
-        transform: translate(25px, -30px) scale(1.06);
-        opacity: 0.75;
-      }
-      30% {
-        transform: translate(-20px, 15px) scale(1.02);
-        opacity: 0.6;
-      }
-      45% {
-        transform: translate(-35px, -15px) scale(1.04);
-        opacity: 0.7;
-      }
-      60% {
-        transform: translate(15px, 25px) scale(0.96);
-        opacity: 0.55;
-      }
-      75% {
-        transform: translate(-10px, -25px) scale(1.03);
-        opacity: 0.65;
-      }
-      90% {
-        transform: translate(30px, 10px) scale(0.98);
-        opacity: 0.5;
-      }
+      0%,100% { transform: translate(0px, 0px) scale(1); opacity: 0.35; }
+      12% { transform: translate(20px, -25px) scale(1.05); opacity: 0.50; }
+      25% { transform: translate(-15px, 10px) scale(1.02); opacity: 0.42; }
+      37% { transform: translate(-30px, -12px) scale(1.03); opacity: 0.48; }
+      50% { transform: translate(12px, 20px) scale(0.97); opacity: 0.38; }
+      62% { transform: translate(25px, 15px) scale(1.01); opacity: 0.45; }
+      75% { transform: translate(-10px, -20px) scale(1.04); opacity: 0.50; }
+      87% { transform: translate(15px, 5px) scale(0.98); opacity: 0.40; }
     }
-
     @keyframes glintPulse {
-      0%,100% { opacity: 0.15; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
+      0%,100% { opacity: 0.10; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.4); }
     }
 
     /* ===== SVG PATTERN OVERLAY ===== */
@@ -466,23 +479,21 @@
   </style>
 </head>
 <body>
-  <!-- Bokeh Background (Vecteezy-style) -->
+    <!-- Bokeh Background — Red palette, 30 spheres -->
   <div class="bokeh-bg">
-    <div class="bokeh-sphere bs-1"></div>
-    <div class="bokeh-sphere bs-2"></div>
-    <div class="bokeh-sphere bs-3"></div>
-    <div class="bokeh-sphere bs-4"></div>
-    <div class="bokeh-sphere bs-5"></div>
-    <div class="bokeh-sphere bs-6"></div>
-    <div class="bokeh-sphere bs-7"></div>
-    <div class="bokeh-sphere bs-8"></div>
-    <div class="bokeh-sphere bs-9"></div>
-    <div class="bokeh-sphere bs-10"></div>
-    <div class="bokeh-glint bg-1"></div>
-    <div class="bokeh-glint bg-2"></div>
-    <div class="bokeh-glint bg-3"></div>
-    <div class="bokeh-glint bg-4"></div>
-    <div class="bokeh-glint bg-5"></div>
+    <div class="bokeh-sphere bs-01"></div><div class="bokeh-sphere bs-02"></div><div class="bokeh-sphere bs-03"></div>
+    <div class="bokeh-sphere bs-04"></div><div class="bokeh-sphere bs-05"></div><div class="bokeh-sphere bs-06"></div>
+    <div class="bokeh-sphere bs-07"></div><div class="bokeh-sphere bs-08"></div><div class="bokeh-sphere bs-09"></div>
+    <div class="bokeh-sphere bs-10"></div><div class="bokeh-sphere bs-11"></div><div class="bokeh-sphere bs-12"></div>
+    <div class="bokeh-sphere bs-13"></div><div class="bokeh-sphere bs-14"></div><div class="bokeh-sphere bs-15"></div>
+    <div class="bokeh-sphere bs-16"></div><div class="bokeh-sphere bs-17"></div><div class="bokeh-sphere bs-18"></div>
+    <div class="bokeh-sphere bs-19"></div><div class="bokeh-sphere bs-20"></div><div class="bokeh-sphere bs-21"></div>
+    <div class="bokeh-sphere bs-22"></div><div class="bokeh-sphere bs-23"></div><div class="bokeh-sphere bs-24"></div>
+    <div class="bokeh-sphere bs-25"></div><div class="bokeh-sphere bs-26"></div><div class="bokeh-sphere bs-27"></div>
+    <div class="bokeh-sphere bs-28"></div><div class="bokeh-sphere bs-29"></div><div class="bokeh-sphere bs-30"></div>
+    <div class="bokeh-glint bg-1"></div><div class="bokeh-glint bg-2"></div><div class="bokeh-glint bg-3"></div>
+    <div class="bokeh-glint bg-4"></div><div class="bokeh-glint bg-5"></div><div class="bokeh-glint bg-6"></div>
+    <div class="bokeh-glint bg-7"></div><div class="bokeh-glint bg-8"></div>
   </div>
   <div class="pattern-overlay"></div>
   <div class="deco-circle dc-1"></div>
