@@ -3,11 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gianluca Volpe – Digital Project Manager</title>
-  <meta name="description" content="Gianluca Volpe - Digital Project Manager CV. Multilingual digital professional with 20+ years of experience.">
+  <title>Gianluca Volpe – Digital Project Manager · AEM · AI · 4 Languages</title>
+  <meta name="description" content="Gianluca Volpe — 20+ years delivering digital projects for Allianz, Cognizant, TravelClick. Multilingual (IT/ES/EN/CA) Requirements Engineer & Business Analyst. Adobe AEM, Azure, AI.">
+  <meta name="keywords" content="digital project manager, business analyst, requirements engineer, AEM, Adobe Experience Manager, Azure, SAFe, agile, AI, prompt engineering, Barcelona, Udine, Italy, Spain, Europe">
+  <meta name="author" content="Gianluca Volpe">
+  <link rel="canonical" href="https://skylhub.github.io/gianluca-volpe-cv/">
+  <meta name="theme-color" content="#ff2244">
+
+  <!-- Open Graph / LinkedIn share -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Gianluca Volpe – Digital Project Manager">
+  <meta property="og:description" content="20+ years · 4 languages · AEM + AI · Bridge between business and tech.">
+  <meta property="og:url" content="https://skylhub.github.io/gianluca-volpe-cv/">
+  <meta property="og:image" content="https://skylhub.github.io/gianluca-volpe-cv/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gianluca Volpe – Digital Project Manager">
+  <meta name="twitter:description" content="20+ years · 4 languages · AEM + AI · Bridge between business and tech.">
+  <meta name="twitter:image" content="https://skylhub.github.io/gianluca-volpe-cv/og-banner.png">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gianluca Volpe",
+    "jobTitle": "Digital Project Manager · Requirements Engineer · Business Analyst",
+    "url": "https://skylhub.github.io/gianluca-volpe-cv/",
+    "email": "mailto:gianluca.volpe@pm.me",
+    "telephone": "+39-379-153-1031",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Moruzzo (Udine)",
+      "addressCountry": "IT"
+    },
+    "knowsLanguage": ["it", "es", "en", "ca"],
+    "sameAs": [
+      "https://linkedin.com/in/gianlucavolpe",
+      "https://github.com/skylhub"
+    ],
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Università degli Studi di Pavia"}
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Netcentric (Cognizant)"
+    }
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='800' text-anchor='middle' fill='%23fff' font-family='monospace'%3EGV%3C/text%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --black: #0a0a0a;
@@ -58,6 +108,25 @@
       background: rgba(10,10,10,0.8);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: height 0.35s cubic-bezier(0.22,1,0.36,1),
+                  padding 0.35s cubic-bezier(0.22,1,0.36,1),
+                  background 0.35s ease,
+                  border-color 0.35s ease;
+    }
+    nav.scrolled {
+      height: 3.5rem;
+      padding: 0 2.5rem;
+      background: rgba(10,10,10,0.92);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    /* Logo adapts: shrink + smaller text on scroll */
+    nav.scrolled .logo-mark { width: 1.5rem; height: 1.5rem; font-size: 0.55rem; }
+    nav.scrolled .logo-text strong { font-size: 0.85rem; }
+    nav.scrolled .logo-text span { font-size: 0.5rem; }
+    .logo-nav .logo-mark,
+    .logo-nav .logo-text strong,
+    .logo-nav .logo-text span {
+      transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
@@ -67,6 +136,20 @@
       transition: color 0.3s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    /* Animated nav border on hover (desktop only) - consistent with counter boxes */
+    .nav-links a {
+      text-decoration: none;
+      position: relative;
+      border: 1px solid transparent;
+      padding: 0.4rem 0.8rem;
+      transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-links a:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px 3px rgba(255,34,68,0.15);
+      background-color: rgba(255,34,68,0.05);
+    }
     .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; position:relative; z-index:100; }
     .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -113,12 +196,14 @@
     .hero-bg .slide:nth-child(3) { animation-delay: 16s; }
     .hero-bg .slide img {
       position: absolute;
-      top: -5%; left: -5%;
-      width: 110%; height: 110%;
+      top: 0; left: 50%;
+      width: 100%; height: 100%;
+      max-width: none;
       object-fit: cover;
       object-position: center center;
       animation: heroZoom 24s ease-in-out infinite;
-      transform: scale(1.1);
+      transform: translateX(-50%) scale(1.1);
+      will-change: transform;
     }
     .hero-bg .slide:nth-child(1) img { animation-delay: 0s; }
     .hero-bg .slide:nth-child(2) img { animation-delay: 8s; }
@@ -128,16 +213,18 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%);
       z-index: 2;
     }
+
+
     @keyframes slideShow {
       0%, 22%   { opacity: 1; }
       27%, 45%  { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
     @keyframes heroZoom {
-      0%   { transform: scale(1); }
-      30%  { transform: scale(1.06); }
-      60%  { transform: scale(1.1); }
-      100% { transform: scale(1.12); }
+      0%   { transform: translateX(-50%) scale(1); }
+      30%  { transform: translateX(-50%) scale(1.06); }
+      60%  { transform: translateX(-50%) scale(1.1); }
+      100% { transform: translateX(-50%) scale(1.12); }
     }
     .hero-grid {
       display: grid;
@@ -312,6 +399,10 @@
       font-size: clamp(2.5rem, 4vw, 4rem);
       font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
       margin-bottom: 3rem;
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .section-title { white-space: normal; }
     }
     .section-text {
       font-size: 1.2rem; line-height: 1.6; color: rgba(255,255,255,0.4);
@@ -356,6 +447,22 @@
       padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.1);
       color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase;
     }
+
+    /* Icons */
+    .icon { width: 1.6rem; height: 1.6rem; color: var(--accent); flex-shrink: 0; }
+    .icon-sm { width: 1rem; height: 1rem; color: currentColor; flex-shrink: 0; }
+    .card-title-icon {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem;
+    }
+    .card-title-icon .icon { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+    .card:hover .card-title-icon .icon { transform: scale(1.15) rotate(-4deg); }
+    .section-subtitle {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.85rem;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;
+    }
+    .section-subtitle.subtitle-muted { color: rgba(255,255,255,0.4); }
 
     /* Timeline */
     .timeline { margin-top: 2rem; }
@@ -411,16 +518,87 @@
 
     /* Contact */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-    .fg { margin-bottom: 1.2rem; }
+    .fg { margin-bottom: 1.2rem; position: relative; }
     .fg label { display: block; font-family: var(--font-mono); font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .fg .req { color: var(--accent); }
     .fg input, .fg textarea {
       width: 100%; padding: 1rem;
       background: transparent; border: 1px solid rgba(255,255,255,0.1);
       color: var(--white); font-size: 1rem; font-family: var(--font-sans);
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, background 0.3s;
     }
-    .fg input:focus, .fg textarea:focus { outline: none; border-color: var(--accent); }
+    .fg input:hover, .fg textarea:hover { border-color: rgba(255,255,255,0.25); }
+    .fg input:focus, .fg textarea:focus { outline: none; border-color: var(--accent); background: rgba(255,34,68,0.03); }
+    .fg input:invalid:not(:placeholder-shown), .fg textarea:invalid:not(:placeholder-shown) {
+      border-color: rgba(255,80,80,0.4);
+    }
+    .fg input:valid:not(:placeholder-shown), .fg textarea:valid:not(:placeholder-shown) {
+      border-color: rgba(100,220,150,0.3);
+    }
     .fg textarea { resize: vertical; min-height: 8rem; }
+    .char-counter {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      color: rgba(255,255,255,0.25); text-align: right; margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+    .char-counter.warn { color: rgba(255,180,80,0.7); }
+    .char-counter.over { color: var(--accent); }
+    .form-fineprint {
+      font-size: 0.75rem; color: rgba(255,255,255,0.25);
+      margin-top: 0.8rem; line-height: 1.5;
+    }
+    .form-fineprint a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 2px; }
+    .form-fineprint a:hover { color: var(--white); }
+
+    /* Submit button states */
+    .form-submit { position: relative; }
+    .form-submit .btn-label { transition: opacity 0.2s; }
+    .form-submit .btn-spinner {
+      display: none; width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 0.5rem;
+    }
+    .form-submit.loading .btn-label { opacity: 0.5; }
+    .form-submit.loading .btn-spinner { display: inline-block; }
+    .form-submit:disabled { cursor: not-allowed; opacity: 0.6; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Status messages */
+    .form-status {
+      margin-top: 1rem; padding: 0;
+      font-size: 0.9rem; line-height: 1.4;
+      border: 1px solid transparent;
+      transition: all 0.3s;
+      max-height: 0; overflow: hidden;
+    }
+    .form-status.show {
+      padding: 1rem; max-height: 200px;
+    }
+    .form-status:empty { display: none; }
+
+    /* Formspree field-level error */
+    .fs-error {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(255,122,122,0.85);
+      margin-top: 0.3rem;
+      min-height: 0;
+      transition: min-height 0.2s;
+      letter-spacing: 0.03em;
+    }
+    .fs-error:not(:empty) {
+      min-height: 1.2rem;
+    }
+    .form-status.success {
+      color: #6edc92; border-color: rgba(110,220,146,0.3); background: rgba(110,220,146,0.05);
+    }
+    .form-status.error {
+      color: #ff7a7a; border-color: rgba(255,122,122,0.3); background: rgba(255,122,122,0.05);
+    }
     .ci {
       display: flex; align-items: center; gap: 1rem;
       padding: 1rem; border: 1px solid rgba(255,255,255,0.04);
@@ -474,14 +652,17 @@
     }
     @media (max-width: 768px) {
       .logo-nav .logo-text strong { font-size: 0.85rem; }
-      .logo-nav .logo-text span { font-size: 0.5rem; }
+      .logo-nav .logo-text span { display: none; }
       .logo-nav .logo-mark { width: 1.6rem; height: 1.6rem; font-size: 0.6rem; }
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-grid { display: flex; flex-direction: column; }
-      .hero-text { padding: 8rem 0 2rem; }
+      .hero-text { padding: 8rem 0 2rem; text-align: center; margin: 0 auto; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-contact { text-align: center; }
+      .btn-group { justify-content: center; }
       .hero-stats { flex-direction: row; flex-wrap: wrap; padding: 0 0 4rem; gap: 1rem; }
       .stat-card-hero { flex: 1 1 calc(50% - 0.5rem); min-width: 0; padding: 1.2rem; }
       .section-inner { display: flex; flex-direction: column; }
@@ -490,13 +671,14 @@
       .tl-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .hero-bg { background: #000; }
       .hero-bg .slide img {
-        filter: blur(4px);
+        object-position: center center;
         animation: heroZoom 24s ease-in-out infinite;
       }
     }
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
-      .hero { padding: 0 1.5rem; min-height: 90vh; }
+      .hero { padding: 0 1.5rem; min-height: 90vh; background: #000; }
+      .hero-bg .slide { background-position: center; }
       .section { padding: 4rem 1.5rem; }
       .hero-text { padding: 6rem 0 1.5rem; }
       .hero-text h1 { font-size: 2.4rem; }
@@ -539,7 +721,8 @@
       .tl-item h4 { font-size: 0.9rem; }
       .section-full h3 { font-size: 1.1rem; }
       .hero-bg .slide img {
-        filter: blur(5px);
+        object-position: center 35%;
+        animation: heroZoom 24s ease-in-out infinite;
       }
     }
   </style>
@@ -564,9 +747,14 @@
         <span>digital project manager</span>
       </span>
     </a>
+  <a href="https://linkedin.com/in/gianlucavolpe" target="_blank" rel="noopener" class="logo-nav" style="margin-left:1.5rem;font-size:0.75rem;color:rgba(255,255,255,0.5);text-decoration:none;display:flex;align-items:center;gap:0.5rem;" aria-label="LinkedIn profile">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    <span style="font-family:var(--font-mono);">in/gianlucavolpe</span>
+  </a>
     <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -576,6 +764,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
@@ -584,9 +773,9 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <div class="slide"><img src="hero-bg.jpg" alt="" aria-hidden="true" loading="lazy"></div>
-      <div class="slide"><img src="hero-2.jpg" alt="" aria-hidden="true" loading="lazy"></div>
-      <div class="slide"><img src="hero-3.jpg" alt="" aria-hidden="true" loading="lazy"></div>
+      <div class="slide"><img src="hero-bg.jpg" srcset="hero-bg-mobile.jpg 768w, hero-bg.jpg 1512w" sizes="100vw" alt="" aria-hidden="true" loading="eager" decoding="async" fetchpriority="high"></div>
+      <div class="slide"><img src="hero-2.jpg" srcset="hero-2-mobile.jpg 768w, hero-2.jpg 1512w" sizes="100vw" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
+      <div class="slide"><img src="hero-3.jpg" srcset="hero-3-mobile.jpg 768w, hero-3.jpg 1512w" sizes="100vw" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
     </div>
     <div class="hero-grid" style="position:relative;z-index:2;">
       <div class="hero-text">
@@ -604,6 +793,7 @@
         <div class="btn-group reveal visible reveal-delay-4">
           <a href="#experience" class="btn btn-primary">View Experience</a>
           <a href="#contact" class="btn">Contact</a>
+          <a href="https://skylhub.github.io/gianluca-volpe-cv/Gianluca_Volpe_Resume2026.pdf" class="btn" download>Download CV</a>
         </div>
       </div>
       <div class="hero-stats">
@@ -618,20 +808,96 @@
   <!-- About -->
   <section class="section" id="about">
     <div class="section-inner">
-      <div class="section-left">
+      <div class="section-full">
         <div class="section-tag reveal">About</div>
         <h2 class="section-title reveal">
-          <span class="line-mask"><span>Bridging business</span></span><br>
-          <span class="line-mask"><span>&amp; technology</span></span>
+          <span class="line-mask"><span>Bridging business &amp; technology</span></span>
         </h2>
-        <p class="section-text reveal">My career has been built at the intersection of digital platforms, human communication, and cross-cultural problem-solving — always with a focus on clarity, accuracy, and the people on the other side of every interaction.</p>
+        <p class="section-text reveal" style="max-width:60rem;margin-bottom:3rem;">My career has been built at the intersection of digital platforms, human communication, and cross-cultural problem-solving — always with a focus on clarity, accuracy, and the people on the other side of every interaction.</p>
+        <div class="card-grid">
+          <div class="card reveal"><h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        4 Languages
+      </h4><p>Native Italian &amp; Spanish, fluent English, working Catalan. Cross-cultural communication is my core strength.</p></div>
+          <div class="card reveal reveal-delay-1"><h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/>
+        </svg>
+        4 Industries
+      </h4><p>Finance, Travel, Healthcare &amp; Technology — delivering solutions across regulated and fast-paced markets.</p></div>
+          <div class="card reveal reveal-delay-2"><h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Client-Facing PM
+      </h4><p>Bridge between business stakeholders, creative teams and developers. Requirements engineering &amp; backlog management.</p></div>
+          <div class="card reveal reveal-delay-3"><h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 1 0 8 0V6a4 4 0 0 0-4-4z"/><path d="M8 22h8"/><path d="M12 18v4"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/>
+        </svg>
+        AI &amp; Transformation
+      </h4>
+            <p>Agentic AI, prompt engineering, Azure, AEM. Certified SAFe® 6 POPM, ITIL 4, AWS Partner.</p>
+          </div>
+        </div>
       </div>
-      <div class="section-right">
-        <div class="card-grid" style="margin:0;">
-          <div class="card reveal"><h4>🌍 4 Languages</h4><p>Native Italian &amp; Spanish, fluent English, working Catalan. Cross-cultural communication is my core strength.</p></div>
-          <div class="card reveal reveal-delay-1"><h4>🏢 4 Industries</h4><p>Finance, Travel, Healthcare &amp; Technology — delivering solutions across regulated and fast-paced markets.</p></div>
-          <div class="card reveal reveal-delay-2"><h4>🤝 Client-Facing PM</h4><p>Bridge between business stakeholders, creative teams and developers. Requirements engineering &amp; backlog management.</p></div>
-          <div class="card reveal reveal-delay-3"><h4>🧠 AI &amp; Transformation</h4><p>Agentic AI, prompt engineering, Azure, AEM. Certified SAFe® 6 POPM, ITIL 4, AWS Partner.</p></div>
+    </div>
+  </section>
+
+
+
+  <!-- Selected Projects -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-full">
+        <div class="section-tag reveal">Selected Work</div>
+        <h2 class="section-title reveal">
+          <span class="line-mask"><span>Selected Projects</span></span>
+        </h2>
+        <p class="section-text reveal" style="max-width:60rem;margin-bottom:3rem;">A snapshot of cross-industry digital delivery.</p>
+        <div class="card-grid">
+          <div class="card reveal">
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+        </svg>
+        AEM Content Automation
+      </h4>
+            <p>Built an AEM-based content workflow on Adobe Experience Manager + Azure, automating content data processing and integrating predictive analytics for an enterprise client's content operations across three EU markets.</p>
+            <div class="tags"><span>AEM</span><span>Azure</span><span>SAFe 6</span><span>JIRA</span><span>Confluence</span><span>BDD</span></div>
+          </div>
+          <div class="card reveal reveal-delay-1">
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/><path d="M9 12l2 2 4-4"/>
+        </svg>
+        SEO &amp; UX Overhaul
+      </h4>
+            <p>Webmaster &amp; Operations for a major European insurance group's Spanish corporate site in a highly regulated environment. Ran data-driven SEO strategy, copy and visual asset revisions, and full cross-device optimisation across desktop, tablet, and mobile.</p>
+            <div class="tags"><span>SEO</span><span>Google Analytics</span><span>UX</span><span>Regulated</span><span>Spanish market</span></div>
+          </div>
+          <div class="card reveal reveal-delay-2">
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
+        </svg>
+        30+ International Sites
+      </h4>
+            <p>Senior PM managing 30+ concurrent responsive web projects for international hotel clients, coordinating designers, developers, and SEO specialists across Barcelona, London, and Munich. Shipped multilingual sites in four languages with consistent quality, on time and on scope.</p>
+            <div class="tags"><span>Senior PM</span><span>Multilingual</span><span>Responsive</span><span>Multimarket</span></div>
+          </div>
+          <div class="card reveal reveal-delay-3">
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/>
+        </svg>
+        Marketing Reporting
+      </h4>
+            <p>Designed and managed daily performance reports for international marketing campaigns across multiple markets. Led weekly client meetings with strategic recommendations and optimisation actions, building a reporting framework that became the basis for data-driven optimisation across regions.</p>
+            <div class="tags"><span>Reporting</span><span>Analytics</span><span>International</span><span>Stakeholder mgmt</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -640,33 +906,50 @@
   <!-- Skills -->
   <section class="section" id="skills">
     <div class="section-inner">
-      <div class="section-left">
+      <div class="section-full">
         <div class="section-tag reveal">Skills</div>
         <h2 class="section-title reveal">
-          <span class="line-mask"><span>Core</span></span><br>
-          <span class="line-mask"><span>Expertise</span></span>
+          <span class="line-mask"><span>Core Expertise</span></span>
         </h2>
-        <p class="section-text reveal">Four pillars of professional capability built over two decades.</p>
-      </div>
-      <div class="section-right">
-        <div class="card-grid" style="margin:0;">
+        <p class="section-text reveal" style="max-width:60rem;margin-bottom:3rem;">Four pillars of professional capability built over two decades.</p>
+        <div class="card-grid">
           <div class="card reveal">
-            <h4>📋 Project Management</h4>
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 4v6"/><path d="M16 4v6"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 17h.01"/><path d="M12 17h.01"/><path d="M16 17h.01"/>
+        </svg>
+        Project Management
+      </h4>
             <p>Agile/Scrum, JIRA, Basecamp, Asana, Float, Azure DevOps, Git, Salesforce</p>
             <div class="tags"><span>Agile</span><span>Scrum</span><span>SAFe</span><span>JIRA</span></div>
           </div>
           <div class="card reveal reveal-delay-1">
-            <h4>📈 Digital Marketing</h4>
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/>
+        </svg>
+        Digital Marketing
+      </h4>
             <p>SEO, SEM, PPC, Email Marketing, Google Analytics, GTM, HubSpot, Marketo</p>
             <div class="tags"><span>SEO</span><span>Google Ads</span><span>Analytics</span></div>
           </div>
           <div class="card reveal reveal-delay-2">
-            <h4>💻 Web Development</h4>
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+        Web Development
+      </h4>
             <p>HTML5, CSS, JavaScript, WordPress, Drupal, AEM, Figma, Photoshop, Cinema 4D</p>
             <div class="tags"><span>HTML/CSS</span><span>WordPress</span><span>AEM</span></div>
           </div>
           <div class="card reveal reveal-delay-3">
-            <h4>🤖 AI &amp; Emerging Tech</h4>
+            <h4 class="card-title-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><path d="M12 6V3"/><path d="M9 18v2"/><path d="M15 18v2"/><path d="M2 12h2"/><path d="M20 12h2"/>
+        </svg>
+        AI &amp; Emerging Tech
+      </h4>
             <p>GitHub Copilot, Cursor, Perplexity AI, NotebookLM, Zapier AI, Ollama, Prompt Engineering</p>
             <div class="tags"><span>AI</span><span>Copilot</span><span>Prompt Eng.</span></div>
           </div>
@@ -710,6 +993,22 @@
             </div>
           </div>
           <div class="tl-item reveal reveal-delay-3">
+            <div class="tl-date">Oct 2017 – Jan 2018</div>
+            <div>
+              <h4>Digital Account Manager</h4>
+              <div class="tl-company">Reflexcash – Premium CPA Network</div>
+              <p>Acquired advertisers and publishers for affiliate network, monitored campaign conversions and tracking accuracy across international markets.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-delay-4">
+            <div class="tl-date">Jul 2017 – Oct 2017</div>
+            <div>
+              <h4>Digital Project Manager (Freelance)</h4>
+              <div class="tl-company">Independent</div>
+              <p>Coordinated remote dev teams for e-commerce CRM customisation. Translated and optimised Amazon product content (EN/IT) for ranking.</p>
+            </div>
+          </div>
+          <div class="tl-item">
             <div class="tl-date">Dec 2009 – Nov 2015</div>
             <div>
               <h4>Digital Senior Project Manager</h4>
@@ -717,7 +1016,23 @@
               <p>Led teams of designers, developers, and SEO specialists delivering responsive websites for international hotel clients. 30+ concurrent projects.</p>
             </div>
           </div>
-          <div class="tl-item reveal reveal-delay-4">
+          <div class="tl-item">
+            <div class="tl-date">Nov 2009 – Dec 2009</div>
+            <div>
+              <h4>Web Developer</h4>
+              <div class="tl-company">Indra – IT Services</div>
+              <p>Designed web interface for hospital medical application + responsive HTML/CSS single-page promo site (PSD-to-code).</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Apr 2008 – Mar 2009</div>
+            <div>
+              <h4>Digital Analyst</h4>
+              <div class="tl-company">Absis – Computer Software</div>
+              <p>Created and optimised web pages for municipalities and provinces (CSS/XHTML). Web content, SEO and translation management.</p>
+            </div>
+          </div>
+          <div class="tl-item">
             <div class="tl-date">Sep 2004 – Apr 2008</div>
             <div>
               <h4>Report Coordinator</h4>
@@ -740,7 +1055,12 @@
           <span class="line-mask"><span>Learning</span></span>
         </h2>
         <div class="reveal">
-          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">🤖 AI &amp; Emerging Tech</h4>
+          <h4 class="section-subtitle">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><path d="M12 6V3"/><path d="M9 18v2"/><path d="M15 18v2"/>
+        </svg>
+        AI &amp; Emerging Tech
+      </h4>
           <div class="cert-list">
             <div class="cert-item"><div class="cert-dot"></div><div><h4>AWS Partner: Agentic AI Essentials</h4><p>AWS – Oct 2025</p></div></div>
             <div class="cert-item"><div class="cert-dot"></div><div><h4>AI Product Masterclass</h4><p>Alison – Sep 2025</p></div></div>
@@ -749,7 +1069,12 @@
           </div>
         </div>
         <div class="reveal reveal-delay-1" style="margin-top:2rem;">
-          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">📋 PM, Cloud &amp; Security</h4>
+          <h4 class="section-subtitle subtitle-muted">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+        PM, Cloud &amp; Security
+      </h4>
           <div class="cert-list">
             <div class="cert-item"><div class="cert-dot"></div><div><h4>SAFe® 6 Product Owner/PM</h4><p>Scaled Agile, Inc. – Feb 2024</p></div></div>
             <div class="cert-item"><div class="cert-dot"></div><div><h4>ITIL 4 Fundamentals</h4><p>IT Service Management</p></div></div>
@@ -780,22 +1105,81 @@
       <div class="section-full">
         <div class="section-tag reveal">Contact</div>
         <h2 class="section-title reveal">
-          <span class="line-mask"><span>Get in</span></span><br>
-          <span class="line-mask"><span>Touch</span></span>
+          <span class="line-mask"><span>Get in Touch</span></span>
         </h2>
         <div class="contact-grid reveal">
-          <form class="fg" action="mailto:gianluca.volpe@pm.me" method="post" enctype="text/plain">
-            <div class="fg"><label>Name</label><input type="text" name="name" required></div>
-            <div class="fg"><label>Email</label><input type="email" name="email" required></div>
-            <div class="fg"><label>Message</label><textarea name="message" rows="4" required></textarea></div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgkdvwo" method="POST" novalidate>
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="fg">
+              <label for="cf-name">Name <span class="req">*</span></label>
+              <input type="text" id="cf-name" name="name" data-fs-field required minlength="2" maxlength="100" autocomplete="name">
+              <span data-fs-error="name" class="fs-error"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-email">Email <span class="req">*</span></label>
+              <input type="email" id="cf-email" name="email" data-fs-field required autocomplete="email">
+              <span data-fs-error="email" class="fs-error"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-subject">Subject <span class="req">*</span></label>
+              <input type="text" id="cf-subject" name="subject" data-fs-field required minlength="3" maxlength="150" placeholder="e.g. Job opportunity, project inquiry, intro">
+              <span data-fs-error="subject" class="fs-error"></span>
+            </div>
+            <div class="fg">
+              <label for="cf-message">Message <span class="req">*</span></label>
+              <textarea id="cf-message" name="message" data-fs-field rows="5" required minlength="10" maxlength="2000" placeholder="Tell me a bit about your project or role..."></textarea>
+              <div class="char-counter"><span id="charCount">0</span> / 2000</div>
+              <span data-fs-error="message" class="fs-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" data-fs-submit-btn id="submitBtn" style="width:100%;justify-content:center;">
+              <span class="btn-label">Send Message</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+
+            <div data-fs-success class="form-status success" role="status" aria-live="polite">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1.2rem;height:1.2rem;vertical-align:middle;margin-right:0.3rem;">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Message sent! I usually reply within 24h.
+            </div>
+            <div data-fs-error class="form-status error" role="status" aria-live="polite">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1.2rem;height:1.2rem;vertical-align:middle;margin-right:0.3rem;">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <span data-fs-error-message>Something went wrong. Please try again or email me directly.</span>
+            </div>
+
+            <p class="form-fineprint">Required fields marked with <span class="req">*</span>. Replies usually within 24h. By submitting, you accept the use of your email for direct contact.</p>
           </form>
           <div>
-            <div class="ci"><div class="ci-icon">📞</div><div class="ci-details"><h4>Phone</h4><p>(+39) 379-153-1031</p></div></div>
-            <div class="ci"><div class="ci-icon">📧</div><div class="ci-details"><h4>Email</h4><a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a></div></div>
-            <div class="ci"><div class="ci-icon">📍</div><div class="ci-details"><h4>Location</h4><p>Moruzzo (UD), Italy</p></div></div>
-            <div class="ci"><div class="ci-icon">🔗</div><div class="ci-details"><h4>LinkedIn</h4><a href="https://linkedin.com/in/gianlucavolpe" target="_blank">linkedin.com/in/gianlucavolpe</a></div></div>
-            <div class="ci"><div class="ci-icon">💻</div><div class="ci-details"><h4>GitHub</h4><a href="https://github.com/skylhub" target="_blank">github.com/skylhub</a></div></div>
+            <div class="ci"><div class="ci-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        </div><div class="ci-details"><h4>Phone</h4><p>(+39) 379-153-1031</p></div></div>
+            <div class="ci"><div class="ci-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+        </div><div class="ci-details"><h4>Email</h4><a href="mailto:gianluca.volpe@pm.me">gianluca.volpe@pm.me</a></div></div>
+            <div class="ci"><div class="ci-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        </div><div class="ci-details"><h4>Location</h4><p>Moruzzo (UD), Italy</p></div></div>
+            <div class="ci"><div class="ci-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        </div><div class="ci-details"><h4>LinkedIn</h4><a href="https://linkedin.com/in/gianlucavolpe" target="_blank">linkedin.com/in/gianlucavolpe</a></div></div>
+            <div class="ci"><div class="ci-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        </div><div class="ci-details"><h4>GitHub</h4><a href="https://github.com/skylhub" target="_blank">github.com/skylhub</a></div></div>
           </div>
         </div>
       </div>
@@ -843,6 +1227,13 @@
             const w = el.getAttribute('data-width');
             if (w) setTimeout(() => el.style.width = w + '%', 300);
           });
+          // Animate hero counters once on first reveal
+          entry.target.querySelectorAll('.stat-card-hero .num [data-target]').forEach(el => {
+            if (!el.dataset.animated) {
+              el.dataset.animated = '1';
+              animateCounter(el);
+            }
+          });
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -883,6 +1274,62 @@
         cancelCurrent = animateCounter(numEl);
       });
     });
+
+    // ===== Contact form: char counter (Formspree handles submit via CDN) =====
+    (function() {
+      const messageEl = document.getElementById('cf-message');
+      const charCountEl = document.getElementById('charCount');
+      if (messageEl && charCountEl) {
+        const max = parseInt(messageEl.getAttribute('maxlength') || '2000');
+        messageEl.addEventListener('input', () => {
+          const len = messageEl.value.length;
+          charCountEl.textContent = len;
+          const counter = charCountEl.parentElement;
+          counter.classList.remove('warn', 'over');
+          if (len > max) counter.classList.add('over');
+          else if (len > max * 0.9) counter.classList.add('warn');
+        });
+      }
+    })();
+
+    // ===== Sticky header: compact on scroll =====
+    (function() {
+      const nav = document.querySelector('nav');
+      if (!nav) return;
+      let lastY = window.scrollY;
+      let ticking = false;
+      const threshold = 80; // px scrolled before compacting
+
+      function update() {
+        const y = window.scrollY;
+        if (y > threshold) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        lastY = y;
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Initial check
+      update();
+    })();
   </script>
+  <!-- Formspree AJAX integration (CDN, no bundler needed) -->
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', {
+      formElement: '#contactForm',
+      formId: 'mlgkdvwo'
+    });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
