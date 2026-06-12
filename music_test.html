@@ -7,9 +7,9 @@
     <style>
         :root {
             --bg-dark: #0a0a0a;
-            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-bg: rgba(20, 20, 20, 0.8); /* Trasparenza 80% */
             --glass-border: rgba(255, 255, 255, 0.1);
-            --accent-color: #ff5500; /* SoundCloud Orange */
+            --accent-color: #ff5500; 
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
         }
@@ -27,13 +27,12 @@
             overflow: hidden;
         }
 
-        /* Landing Page Placeholder */
         .hero {
             text-align: center;
-            opacity: 0.5;
+            opacity: 0.3;
         }
 
-        /* 1. The Invitation Notification */
+        /* 1. Invitation Notification */
         #music-invite {
             position: fixed;
             bottom: 30px;
@@ -42,14 +41,14 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             z-index: 1000;
             animation: slideIn 0.5s ease-out;
         }
@@ -60,10 +59,10 @@
         }
 
         .invite-icon {
-            font-size: 20px;
+            font-size: 18px;
             background: var(--accent-color);
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,7 +70,7 @@
         }
 
         .invite-text {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-main);
         }
@@ -80,40 +79,57 @@
             background: white;
             color: black;
             border: none;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             cursor: pointer;
             transition: background 0.3s;
         }
 
-        .start-btn:hover {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        /* 2. The Minimized Player Bar */
+        /* 2. The Player Bar */
         #player-bar {
             position: fixed;
-            bottom: -100px; /* Start hidden */
+            bottom: 0; 
             left: 0;
             right: 0;
-            height: 120px;
+            height: 110px;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-top: 1px solid var(--glass-border);
             z-index: 1001;
-            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 0 20px;
+            transform: translateY(100%); /* Start hidden */
         }
 
         #player-bar.active {
-            bottom: 0;
+            transform: translateY(0);
+        }
+
+        /* Minimized state on the right */
+        #player-bar.collapsed {
+            transform: translateY(0);
+            width: 60px;
+            left: auto;
+            right: 20px;
+            bottom: 20px;
+            height: 60px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        #player-bar.collapsed:hover {
+            width: 80px;
+            height: 80px;
+            background: rgba(30, 30, 30, 0.9);
         }
 
         .player-container {
@@ -122,20 +138,20 @@
             position: relative;
             display: flex;
             align-items: center;
+            transition: opacity 0.3s;
         }
 
-        /* Make the iframe transparent-ish by wrapping it */
+        #player-bar.collapsed .player-container {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .iframe-wrapper {
             width: 100%;
             height: 100px;
             border-radius: 12px;
             overflow: hidden;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-        }
-
-        .iframe-wrapper:hover {
-            opacity: 1;
+            opacity: 0.8; /* Requirement: 80% transparency feel */
         }
 
         .close-player {
@@ -148,11 +164,20 @@
             color: var(--text-muted);
             font-size: 24px;
             cursor: pointer;
-            transition: color 0.3s;
         }
 
-        .close-player:hover {
+        /* Floating icon when collapsed */
+        .collapsed-icon {
+            display: none;
+            font-size: 24px;
             color: white;
+            text-align: center;
+            width: 100%;
+            line-height: 60px;
+        }
+
+        #player-bar.collapsed .collapsed-icon {
+            display: block;
         }
 
         @keyframes slideIn {
@@ -160,14 +185,24 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
+        /* Mobile version */
         @media (max-width: 600px) {
             #player-bar {
-                height: 140px;
+                height: 130px;
+                padding: 0 10px;
             }
+            
+            #player-bar.collapsed {
+                right: 10px;
+                bottom: 10px;
+            }
+
             .close-player {
                 right: 10px;
                 top: 10px;
             }
+
+            h1 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -175,21 +210,19 @@
 
     <div class="hero">
         <h1>Gianluca Volpe CV</h1>
-        <p>The music player test is running...</p>
+        <p>Testing the an-invasive music player...</p>
     </div>
 
-    <!-- Step 1: Invitation Notification -->
     <div id="music-invite" onclick="startMusic()">
         <div class="invite-icon">🎵</div>
         <div class="invite-text">Want to listen to my music?</div>
         <button class="start-btn">START</button>
     </div>
 
-    <!-- Step 2: Minimized Player Bar -->
-    <div id="player-bar">
+    <div id="player-bar" onclick="expandPlayer()">
+        <div class="collapsed-icon">🎵</div>
         <div class="player-container">
             <div class="iframe-wrapper">
-                <!-- SoundCloud Widget - Using your tracks URL -->
                 <iframe 
                     width="100%" 
                     height="100%" 
@@ -199,26 +232,56 @@
                     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1063326143&color=000000&autoplay=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_artwork=true">
                 </iframe>
             </div>
-            <button class="close-player" onclick="closeMusic()">✕</button>
+            <button class="close-player" onclick="event.stopPropagation(); closeMusic()">✕</button>
         </div>
     </div>
 
     <script>
+        let collapseTimer;
+
         function startMusic() {
-            // Hide invite
             document.getElementById('music-invite').style.display = 'none';
-            // Show player bar
-            document.getElementById('player-bar').classList.add('active');
+            const player = document.getElementById('player-bar');
+            player.classList.add('active');
+            player.classList.remove('collapsed');
+            
+            // Start 10 second timer to minimize
+            resetTimer();
+        }
+
+        function expandPlayer() {
+            const player = document.getElementById('player-bar');
+            if(player.classList.contains('collapsed')) {
+                player.classList.remove('collapsed');
+                resetTimer();
+            }
+        }
+
+        function resetTimer() {
+            clearTimeout(collapseTimer);
+            collapseTimer = setTimeout(() => {
+                collapsePlayer();
+            }, 10000); // 10 seconds
+        }
+
+        function collapsePlayer() {
+            const player = document.getElementById('player-bar');
+            player.classList.add('collapsed');
         }
 
         function closeMusic() {
-            // Hide player bar
-            document.getElementById('player-bar').classList.remove('active');
-            // Bring back the invite after a short delay
+            const player = document.getElementById('player-bar');
+            player.classList.remove('active');
+            player.classList.remove('collapsed');
+            clearTimeout(collapseTimer);
+            
             setTimeout(() => {
                 document.getElementById('music-invite').style.display = 'flex';
             }, 1000);
         }
+
+        // Reset timer if user interacts with the expanded player
+        document.querySelector('.player-container').addEventListener('mousedown', resetTimer);
     </script>
 </body>
 </html>
