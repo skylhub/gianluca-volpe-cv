@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundCloud Player Test - Gianluca Volpe</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-color: #ff5500; /* SoundCloud Orange */
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Landing Page Placeholder */
+        .hero {
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        /* 1. The Invitation Notification */
+        #music-invite {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        #music-invite:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+
+        .invite-icon {
+            font-size: 20px;
+            background: var(--accent-color);
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .invite-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .start-btn {
+            background: white;
+            color: black;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .start-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* 2. The Minimized Player Bar */
+        #player-bar {
+            position: fixed;
+            bottom: -100px; /* Start hidden */
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            z-index: 1001;
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        #player-bar.active {
+            bottom: 0;
+        }
+
+        .player-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Make the iframe transparent-ish by wrapping it */
+        .iframe-wrapper {
+            width: 100%;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .iframe-wrapper:hover {
+            opacity: 1;
+        }
+
+        .close-player {
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-player:hover {
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            #player-bar {
+                height: 140px;
+            }
+            .close-player {
+                right: 10px;
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Gianluca Volpe CV</h1>
+        <p>The music player test is running...</p>
+    </div>
+
+    <!-- Step 1: Invitation Notification -->
+    <div id="music-invite" onclick="startMusic()">
+        <div class="invite-icon">🎵</div>
+        <div class="invite-text">Want to listen to my music?</div>
+        <button class="start-btn">START</button>
+    </div>
+
+    <!-- Step 2: Minimized Player Bar -->
+    <div id="player-bar">
+        <div class="player-container">
+            <div class="iframe-wrapper">
+                <!-- SoundCloud Widget - Using your tracks URL -->
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allow="autoplay" 
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1063326143&color=000000&autoplay=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_artwork=true">
+                </iframe>
+            </div>
+            <button class="close-player" onclick="closeMusic()">✕</button>
+        </div>
+    </div>
+
+    <script>
+        function startMusic() {
+            // Hide invite
+            document.getElementById('music-invite').style.display = 'none';
+            // Show player bar
+            document.getElementById('player-bar').classList.add('active');
+        }
+
+        function closeMusic() {
+            // Hide player bar
+            document.getElementById('player-bar').classList.remove('active');
+            // Bring back the invite after a short delay
+            setTimeout(() => {
+                document.getElementById('music-invite').style.display = 'flex';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
